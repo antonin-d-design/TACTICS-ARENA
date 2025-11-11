@@ -7,22 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Styles CSS (Non modifiés) --- */
+        /* --- Styles CSS (inchangés) --- */
         :root {
             --color-primary: #FFFFFF; 
-            --color-secondary: #FF4500; /* Orange vif */
+            --color-secondary: #FF4500;
             --color-text-dark: #1a1a1a; 
-            --color-background-light: #f4f4f4; /* Fond légèrement cassé pour le body */
+            --color-background-light: #f4f4f4;
             --font-main: 'Outfit', sans-serif;
         }
 
-        /* --- Style de base --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: var(--font-main);
             background-color: var(--color-background-light);
@@ -33,16 +27,15 @@
             min-height: 100vh;
         }
 
-        /* --- Conteneur du Formulaire (Thème du Site) --- */
         .auth-container {
             background-color: var(--color-primary);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 400px; /* Taille maximale pour un formulaire centré */
+            max-width: 400px;
             text-align: center;
-            border-top: 5px solid var(--color-secondary); /* Touche orange */
+            border-top: 5px solid var(--color-secondary);
         }
 
         .auth-container h2 {
@@ -52,22 +45,11 @@
             font-weight: 900;
         }
 
-        .orange-text {
-            color: var(--color-secondary);
-        }
+        .orange-text { color: var(--color-secondary); }
 
-        /* --- Champs de Saisie --- */
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
+        .input-group { margin-bottom: 20px; text-align: left; }
 
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: #666;
-        }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 700; color: #666; }
 
         .input-group input {
             width: 100%;
@@ -84,7 +66,6 @@
             box-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
         }
 
-        /* --- Bouton principal de Création de Compte --- */
         .cta-button {
             display: block;
             width: 100%;
@@ -107,7 +88,6 @@
             box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
         }
         
-        /* --- Bouton de Connexion (Petit bouton en dessous) --- */
         .login-link {
             display: inline-block;
             margin-top: 15px;
@@ -128,8 +108,7 @@
             color: var(--color-secondary);
             font-weight: 700;
         }
-
-        /* Style pour les messages de statut */
+        
         #auth-message {
             color: #FF4500;
             font-weight: 700;
@@ -176,7 +155,6 @@
     </div>
 
     <script>
-        // Votre configuration Firebase correcte
         const firebaseConfig = {
             apiKey: "AIzaSyCvpCL_nAThuD5CXfY0_gMG3Xg3zUDH4YU",
             authDomain: "tactics-arena-5083a.firebaseapp.com",
@@ -186,18 +164,15 @@
             appId: "1:362719849853:web:c954876eb249b3f1813014",
         };
 
-        // Initialisation du service Firebase (v8)
         const app = firebase.initializeApp(firebaseConfig);
-        const auth = app.auth(); // Utilisation de app.auth() du SDK v8
+        const auth = app.auth(); 
         
-        // Ciblages des éléments du DOM
         const registrationForm = document.getElementById('registration-form');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const confirmPasswordInput = document.getElementById('confirm-password');
         const messageDiv = document.getElementById('auth-message');
 
-        // Fonction pour gérer la soumission du formulaire
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault(); 
             messageDiv.textContent = ''; 
@@ -212,26 +187,22 @@
                 return;
             }
 
-            // Appel de la fonction de création de compte de Firebase (v8)
+            // Création de compte (v8)
             auth.createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
-                    // Succès
                     const user = userCredential.user;
                     messageDiv.style.color = 'green';
-                    messageDiv.textContent = `Compte créé avec succès pour ${user.email} ! Redirection...`;
+                    messageDiv.textContent = `Compte créé avec succès ! Redirection...`;
                     
-                    // Rediriger l'utilisateur après 2 secondes
                     setTimeout(() => {
                          window.location.href = 'pagedeconnexion.html'; 
                     }, 2000); 
                 })
                 .catch((error) => {
-                    // Échec
                     let errorMessage = error.message;
 
-                    // Traduction des erreurs courantes
                     if (error.code === 'auth/email-already-in-use') {
-                        errorMessage = "Cet e-mail est déjà utilisé par un autre compte.";
+                        errorMessage = "Cet e-mail est déjà utilisé.";
                     } else if (error.code === 'auth/invalid-email') {
                         errorMessage = "L'adresse e-mail n'est pas valide.";
                     } else if (error.code === 'auth/weak-password') {
@@ -245,6 +216,3 @@
     </script>
 </body>
 </html>
-
-
-
