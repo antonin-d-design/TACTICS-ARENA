@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactics Arena - Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* [ ... Toutes les règles CSS précédentes ... ] */
+        :root {
+            --color-primary: #FFFFFF; 
+            --color-secondary: #FF4500; /* Votre orange */
+            --color-text-dark: #1a1a1a; 
+            --color-text-light: #f0f0f0; 
+            --font-main: 'Outfit', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-primary);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 2px solid var(--color-secondary);
+            background-color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-container h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        
+        .logo-text-black {
+            color: var(--color-text-dark); 
+            transition: color 0.3s ease; 
+        }
+
+        .logo-container a:hover .logo-text-black {
+            color: var(--color-secondary); 
+        }
+
+        .orange-text {
+            color: var(--color-secondary);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 5px; /* Rapproche les boutons (était 20px) */
+            flex-grow: 1; 
+            justify-content: center;
+        }
+        
+        .nav-button {
+            text-decoration: none; 
+            color: var(--color-text-dark);
+            font-weight: 700;
+            padding: 15px 15px; /* Réduit le padding pour compenser le rapprochement */
+            font-size: 1.1rem;
+            /* Mise à jour : Retire background-color de la transition, enlève position: relative */
+            transition: color 0.3s ease, transform 0.3s ease;
+            /* Suppression des propriétés liées au soulignement et à l'encadrement */
+        }
+
+        /* Suppression complète des règles .nav-button::after et .nav-button:hover::after pour retirer le soulignement */
+        
+        /* NOUVELLE ANIMATION DE SURVOL demandée : Texte orange et grossissement léger (scale), sans encadrement ni fond */
+        .nav-button:hover {
+            color: var(--color-secondary); /* Texte en orange */
+            transform: scale(1.05); /* L'élément grandit légèrement */
+            /* Suppression du background-color: rgba(255, 69, 0, 0.1) */
+        }
+        
+        .header-cta-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
+        .login-btn {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 15px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            color: var(--color-secondary);
+        }
+        
+        .create-account-btn {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            border-radius: 5px;
+            padding: 10px 25px; 
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none; 
+        }
+
+        .create-account-btn:hover {
+            background-color: #ff6622;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+        
+        /* [ ... CSS pour Hero Section et Cards ... ] */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; 
+            padding: 80px 5%;
+            gap: 60px;
+            flex: 1; 
+        }
+
+        .game-presentation {
+            text-align: center; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            animation: fadeInSlide 1s ease-out forwards;
+        }
+
+        .animated-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            animation: fadeInSlide 1s ease-out forwards 0.3s;
+            opacity: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 1px;
+            animation: fadeInSlide 1s ease-out forwards 0.6s;
+            opacity: 0;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6622;
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.5);
+        }
+
+        .feature-cards {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* --- DÉBUT : NOUVEAU CSS POUR LES CARTES --- */
+        .card {
+            flex: 1;
+            background-color: var(--color-primary);
+            padding: 40px; /* Agrandit le padding pour une carte plus grande */
+            border-radius: 15px; /* Arrondi plus prononcé */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+            border: 2px solid #e0e0e0; /* Bordure plus visible */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Pour l'effet de bordure animée */
+            opacity: 0; /* Initialement invisible pour l'animation d'apparition */
+            transform: translateY(30px); /* Décalé vers le bas pour l'animation */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03); /* S'agrandit légèrement et se soulève */
+            box-shadow: 0 15px 45px rgba(255, 69, 0, 0.3); /* Ombre orange au survol */
+            border-color: var(--color-secondary); /* Bordure orange au survol */
+        }
+        
+        /* Effet de bordure animée (peut être retiré si trop complexe) */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            border: 2px solid transparent; /* Bordure transparente par défaut */
+            transition: border-color 0.4s ease;
+            pointer-events: none; /* Empêche de bloquer les interactions avec le contenu de la carte */
+        }
+
+        .card:hover::before {
+            border-color: var(--color-secondary); /* Devient orange au survol */
+        }
+
+        .card-icon {
+            font-size: 3.5rem; /* Agrandit l'icône */
+            margin-bottom: 20px;
+            color: var(--color-secondary); /* Couleur orange pour l'icône */
+            display: inline-block;
+            transition: transform 0.3s ease; /* Animation icône */
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg); /* L'icône tourne et s'agrandit légèrement au survol */
+        }
+
+        .card h3 {
+            font-size: 1.8rem; /* Agrandit le titre */
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h3 {
+            color: var(--color-secondary); /* Titre en orange au survol */
+        }
+
+        .card p {
+            font-size: 1.1rem; /* Agrandit le texte */
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Animation d'apparition des cartes */
+        @keyframes cardFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Appliquer l'animation avec un délai pour chaque carte */
+        .card:nth-child(1) { animation: cardFadeInUp 0.7s ease-out forwards; animation-delay: 0.2s; }
+        .card:nth-child(2) { animation: cardFadeInUp 0.7s ease-out forwards; animation-delay: 0.4s; }
+        .card:nth-child(3) { animation: cardFadeInUp 0.7s ease-out forwards; animation-delay: 0.6s; }
+        /* --- FIN : NOUVEAU CSS POUR LES CARTES --- */
+
+        .site-footer {
+            background-color: var(--color-secondary); 
+            color: var(--color-primary);
+            padding: 30px 5%;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffe0b2; 
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="..\site\jeupython.html" style="text-decoration:none;">
+                <h1><span class="orange-text">TACTICS</span> <span class="logo-text-black">ARENA</span></h1>
+            </a>
+        </div>    
+        <nav class="main-nav">
+            <a href="..\site\news.html" class="nav-button">News</a>
+            <!-- BOUTON WIKI AJOUTÉ ICI -->
+            <a href="..\site\wiki.html" class="nav-button">Wiki</a>
+            <a href="..\site\recrutement.html" class="nav-button">Recrutement</a>
+        </nav>
+        <div class="header-cta-container">
+            <a href="..\site\pagedeconnexion.html" class="login-btn">Connexion</a> 
+            <a href="..\site\pageincription.html" class="create-account-btn">Créer un Compte</a>
+        </div>
+    </header>
+    <main class="hero-section">
+        <section class="game-presentation">
+            <h2 class="animated-title">Dominez le Champ de Bataille.</h2>
+            <p class="animated-text">
+                Plongez dans Tactics Arena, le jeu de stratégie dynamique. Construisez votre deck ultime,
+                améliorez vos personnages via notre boutique exclusive, et grimpez le
+                système de rang pour prouver votre suprématie.
+            </p>
+            <a href="#" class="cta-button animated-cta">Télécharger</a>
+        </section>
+        <section class="feature-cards">
+            <div class="card"> <span class="card-icon">⚔️</span>
+                <h3>Deck Modifiable</h3>
+                <p>Assemblez des stratégies infinies avec des centaines de cartes uniques.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">💰</span>
+                <h3>Boutique & Améliorations</h3>
+                <p>Découvrez des objets exclusifs et des améliorations puissantes pour vos héros.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🏅</span>
+                <h3>Système de Rang</h3>
+                <p>Affrontez des joueurs du monde entier et prouvez votre valeur sur le champ de bataille.</p>
+            </div>
+        </section>
+        
+        <div style="height: 50vh; width: 100%;"></div> 
+        
+    </main>
+    
+    <footer class="site-footer">
+        <p>Copyright © 2025 Tactics Arena. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="/C:\Users\ANTONIN\Desktop\site\mentionlégal.html">Mentions Légales</a>
+            <a href="C:\Users\ANTONIN\Desktop\site\rgpd.html">Politique de Confidentialité (RGPD)</a>
+            <a href="C:\Users\ANTONIN\Desktop\site\/cgu.html">Conditions Générales d'Utilisation (CGU)</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </footer>
+
+</body>
+</html>
