@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactics Arena - Recrutement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variables CSS de Tactics Arena --- */
+        :root {
+            --color-primary: #FFFFFF; 
+            --color-secondary: #FF4500; /* Orange vif */
+            --color-text-dark: #1a1a1a; 
+            --color-text-light: #f0f0f0; 
+            --font-main: 'Outfit', sans-serif;
+            --color-background-light: #f4f4f4;
+        }
+
+        /* --- Style de base --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* --- En-tête de la page (Header) --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 2px solid var(--color-secondary);
+            background-color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-container h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        
+        /* Logo transformé en lien vers la page d'accueil */
+        .logo-link {
+            text-decoration: none;
+            color: var(--color-text-dark); /* Hérite de la couleur du texte */
+            transition: color 0.3s;
+        }
+
+        .logo-link:hover {
+            color: var(--color-secondary);
+        }
+
+        .orange-text {
+            color: var(--color-secondary);
+        }
+
+        /* --- Navigation (News & Recrutement) --- */
+        .main-nav {
+            display: flex;
+            gap: 20px; 
+            flex-grow: 1; 
+            justify-content: center;
+        }
+        
+        .nav-button {
+            text-decoration: none; 
+            color: var(--color-text-dark);
+            font-weight: 700;
+            padding: 15px 35px; 
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Ajout des transitions */
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        /* Animation: Ligne orange sous les boutons au survol (identique à index.html) */
+        .nav-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px; 
+            background-color: var(--color-secondary);
+            transition: left 0.3s ease;
+        }
+
+        .nav-button:hover::after {
+            left: 0;
+        }
+
+        .nav-button:hover {
+            color: var(--color-secondary);
+            transform: translateY(-3px);
+            background-color: rgba(255, 69, 0, 0.1);
+        }
+        
+        /* Soulignement pour le bouton actif (Recrutement) */
+        .nav-button[href="recrutement.html"] {
+            color: var(--color-secondary);
+        }
+
+        .nav-button[href="recrutement.html"]::after {
+            left: 0;
+        }
+
+        /* --- Conteneur des deux boutons CTA du Header (Connexion et Créer un Compte) --- */
+        .header-cta-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
+        /* Style spécifique pour le bouton "Connexion" (texte seulement) */
+        .login-btn {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 15px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            color: var(--color-secondary);
+        }
+        
+        /* Style spécifique pour le bouton "Créer un Compte" (bouton orange) */
+        .create-account-btn {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            border-radius: 5px;
+            padding: 10px 25px; 
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none; 
+        }
+
+        /* Animation: Effet de survol sur le bouton Créer un Compte (identique à index.html) */
+        .create-account-btn:hover {
+            background-color: #ff6622;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+        
+        /* --- Contenu Principal de Recrutement --- */
+        .recruitment-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .recruitment-box {
+            background-color: var(--color-primary);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .recruitment-box h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .recruitment-box p {
+            font-size: 1.25rem;
+            color: #444;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .info-paragraph {
+            background-color: rgba(255, 69, 0, 0.05); 
+            border-left: 5px solid var(--color-secondary);
+            padding: 20px;
+            border-radius: 5px;
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .info-paragraph:last-child {
+             border-left: none;
+             margin-top: 20px; 
+             font-size: 1rem; 
+             color: #666;
+             font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="C:\Users\ANTONIN\Desktop\site\jeupython.html" class="logo-link">
+                <h1><span class="orange-text">TACTICS</span> ARENA</h1>
+            </a>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="news.html" class="nav-button">News</a>
+            <a href="recrutement.html" class="nav-button">Recrutement</a>
+        </nav>
+
+        <div class="header-cta-container">
+            <a href="C:\Users\ANTONIN\Desktop\site\pagedeconnexion.html" class="login-btn">Connexion</a> 
+            
+            <a href="C:\Users\ANTONIN\Desktop\site\pageincription.html" class="create-account-btn">Créer un Compte</a>
+        </div>
+    </header>
+
+    <main class="recruitment-section">
+        <div class="recruitment-box">
+            
+            <h2>Rejoignez l'Arène.</h2>
+            
+            <p>
+                Chez Tactics Arena, nous sommes passionnés par la création d'expériences de jeu stratégiques uniques. 
+                Nous sommes constamment à la recherche de talents exceptionnels pour renforcer notre équipe.
+            </p>
+            
+            <div class="info-paragraph">
+                <p>
+                    Pour le moment, nous n'avons aucun poste ouvert. 
+                    Cependant, notre équipe grandit vite ! Nous vous encourageons à revenir régulièrement consulter cette page 
+                    pour être informé(e) en priorité de nos futures opportunités de carrière et de recrutement.
+                </p>
+            </div>
+            
+            <p class="info-paragraph">
+                Merci de l'intérêt que vous portez à notre jeu !!
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

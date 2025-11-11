@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - Tactics Arena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #FFFFFF; 
+            --color-secondary: #FF4500; /* Orange */
+            --color-text-dark: #1a1a1a; 
+            --color-text-light: #f0f0f0; 
+            --font-main: 'Outfit', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-primary);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        /* Styles d'en-tête (main-header) conservés */
+        .main-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; border-bottom: 2px solid var(--color-secondary);
+            background-color: var(--color-primary); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .logo-container a { text-decoration: none; color: inherit; }
+        .logo-container h1 { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
+        .logo-text-black { color: var(--color-text-dark); transition: color 0.3s ease; }
+        .logo-container a:hover .logo-text-black { color: var(--color-secondary); }
+        .orange-text { color: var(--color-secondary); }
+        .main-nav { display: flex; gap: 20px; flex-grow: 1; justify-content: center; }
+        .nav-button { text-decoration: none; color: var(--color-text-dark); font-weight: 700; padding: 15px 35px; font-size: 1.1rem; transition: color 0.3s ease; }
+        .header-cta-container { display: flex; align-items: center; gap: 15px; }
+        /* Fin des styles d'en-tête */
+
+
+        /* --- NOUVEAUX STYLES POUR LA PAGE LÉGALE --- */
+        .policy-container {
+            flex: 1; 
+            max-width: 1000px;
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .policy-container h2 {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--color-text-dark);
+            padding-bottom: 10px;
+            font-weight: 900;
+        }
+        
+        .policy-container h3 {
+            font-size: 1.6rem;
+            color: var(--color-text-dark);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            padding-left: 10px;
+            border-left: 5px solid var(--color-secondary);
+        }
+
+        .policy-container p, .policy-container ul {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .policy-container ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .policy-container ul li {
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .highlight {
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+        /* --- FIN DES STYLES LÉGAUX --- */
+
+
+        /* Styles de pied de page (site-footer) conservés */
+        .site-footer {
+            background-color: var(--color-secondary); color: var(--color-primary);
+            padding: 30px 5%; text-align: center; font-size: 0.9rem;
+            margin-top: auto; opacity: 1; transform: translateY(0);
+        }
+        .footer-links { margin-top: 10px; }
+        .footer-links a { color: var(--color-primary); text-decoration: none; margin: 0 15px; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #ffe0b2; text-decoration: underline; }
+        /* Fin des styles de pied de page */
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="/C:\Users\ANTONIN\Desktop\site\jeupython.html" style="text-decoration:none;">
+                <h1><span class="orange-text">TACTICS</span> <span class="logo-text-black">ARENA</span></h1>
+            </a>
+        </div>    
+        <nav class="main-nav">
+            <a href="news.html" class="nav-button">News</a> 
+            <a href="recrutement.html" class="nav-button">Recrutement</a>
+        </nav>
+        <div class="header-cta-container">
+            <a href="/C:\Users\ANTONIN\Desktop\site\pagedeconnexion.html" class="login-btn">Connexion</a> 
+            <a href="/C:\Users\ANTONIN\Desktop\site\pageincription.html" class="create-account-btn">Créer un Compte</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="policy-container">
+            <h2>Mentions Légales</h2>
+            <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site <span class="highlight">Tactics Arena</span> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+
+            <h3>1. Éditeur du Site</h3>
+            <p>Le présent site est édité par :</p>
+            <ul>
+                <li><span class="highlight">Nom et Prénom :</span> [À REMPLACER : VOTRE NOM & PRÉNOM (Si Particulier/Auto-entrepreneur)]</li>
+                <li><span class="highlight">Nom de la Société (si applicable) :</span> [À REMPLACER : DÉNOMINATION SOCIALE DE VOTRE ENTREPRISE]</li>
+                <li><span class="highlight">Forme Juridique (si applicable) :</span> [À REMPLACER : SARL, SAS, etc.]</li>
+                <li><span class="highlight">Adresse de contact :</span> [À REMPLACER : ADRESSE E-MAIL DE CONTACT LÉGAL (ex: contact@tactics-arena.fr)]</li>
+                <li><span class="highlight">Numéro de téléphone :</span> [À REMPLACER : VOTRE NUMÉRO DE TÉLÉPHONE]</li>
+                <li><span class="highlight">Numéro d'immatriculation (SIRET/RCS/RM) :</span> [À REMPLACER : VOTRE NUMÉRO SI VOUS ÊTES PROFESSIONNEL]</li>
+                <li><span class="highlight">Directeur de la publication :</span> [À REMPLACER : VOTRE NOM & PRÉNOM (ou le nom du gérant)]</li>
+            </ul>
+
+            <h3>2. Propriété Intellectuelle</h3>
+            <p>L'ensemble du site <span class="highlight">Tactics Arena</span>, y compris mais sans s'y limiter, les graphismes, images, textes, vidéos, animations, sons, logos et icônes sont la propriété exclusive de l'éditeur à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.</p>
+
+            <h3>3. Conditions Générales d'Utilisation (CGU)</h3>
+            <p>L'accès et l'utilisation du site sont soumis à l'acceptation des Conditions Générales d'Utilisation (CGU). Nous vous invitons à les consulter ici : <a href="/cgu" class="highlight" style="text-decoration: underline;">[Lien vers la page CGU]</a></p>
+            
+            <h3>4. Hébergement du Site</h3>
+            <p>L'hébergement du site est assuré par :</p>
+            <ul>
+                <li><span class="highlight">Nom de l'Hébergeur :</span> [À REMPLACER : NOM DE L'HÉBERGEUR (ex: OVH, Hostinger)]</li>
+                <li><span class="highlight">Raison Sociale :</span> [À REMPLACER : RAISON SOCIALE DE L'HÉBERGEUR]</li>
+                <li><span class="highlight">Adresse Postale :</span> [À REMPLACER : ADRESSE COMPLÈTE DE L'HÉBERGEUR]</li>
+                <li><span class="highlight">Numéro de Téléphone :</span> [À REMPLACER : NUMÉRO DE TÉLÉPHONE DE L'HÉBERGEUR]</li>
+            </ul>
+
+            <h3>5. Cookies</h3>
+            <p>Le site <span class="highlight">Tactics Arena</span> peut être amené à vous demander l'acceptation des cookies pour des besoins de statistiques et d'affichage. Pour plus d'informations, veuillez consulter notre <a href="/politique-confidentialite" class="highlight" style="text-decoration: underline;">Politique de Confidentialité</a>.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Copyright © 2025 Tactics Arena. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="/C:\Users\ANTONIN\Desktop\site\mentionlégal.html">Mentions Légales</a>
+            <a href="C:\Users\ANTONIN\Desktop\site\rgpd.html">Politique de Confidentialité (RGPD)</a>
+            <a href="C:\Users\ANTONIN\Desktop\site\/cgu.html">Conditions Générales d'Utilisation (CGU)</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </footer>
+
+</body>
+</html>
