@@ -137,70 +137,8 @@
         }
     </style>
     
-    <script type="module">
-        // Importation des fonctions nécessaires de Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-
-        // Étape 2 : VOTRE CONFIGURATION FIREBASE (REMPLACEZ LES PLACEHOLDERS)
-        const firebaseConfig = {
-            apiKey: "AIzaSyCvpCL_nAThuD5CXfY0_gMG3Xg3zUDH4YU",
-            authDomain: "tactics-arena-5083a.firebaseapp.com",
-            projectId: "tactics-arena-5083a",
-            storageBucket: tactics-arena-5083a.firebasestorage.app",
-            messagingSenderId: "1:362719849853:web:c954876eb249b3f1813014",
-            appId: "VOTRE-APP-ID"
-        };
-
-        // Initialisation de Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        
-        // Ciblages des éléments du DOM
-        const loginForm = document.getElementById('login-form');
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const messageDiv = document.getElementById('auth-message');
-
-        // Fonction pour gérer la soumission du formulaire
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Empêche l'envoi classique du formulaire
-            messageDiv.textContent = ''; // Efface les anciens messages
-
-            const email = emailInput.value;
-            const password = passwordInput.value;
-
-            // Appel de la fonction de connexion de Firebase
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Connexion réussie
-                    const user = userCredential.user;
-                    messageDiv.style.color = 'green';
-                    messageDiv.textContent = `Connexion réussie ! Bienvenue ${user.email}. Redirection...`;
-                    
-                    // Optionnel : Rediriger l'utilisateur vers la page principale du jeu
-                    setTimeout(() => {
-                         // Remplacer 'index.html' par l'URL de votre page principale après connexion
-                         window.location.href = 'index.html'; 
-                    }, 2000); 
-                })
-                .catch((error) => {
-                    // Une erreur s'est produite
-                    messageDiv.style.color = '#FF4500';
-                    let errorMessage = error.message;
-
-                    // Traduction des erreurs courantes de Firebase pour l'utilisateur
-                    if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-                        errorMessage = "E-mail ou mot de passe incorrect.";
-                    } else if (error.code === 'auth/invalid-email') {
-                        errorMessage = "L'adresse e-mail n'est pas valide.";
-                    }
-                    
-                    messageDiv.textContent = `Erreur : ${errorMessage}`;
-                });
-        });
-
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 </head>
 <body>
 
@@ -232,6 +170,63 @@
         
     </div>
 
+    <script>
+        // FIX: Remplacement des clés manquantes/incorrectes par votre configuration complète
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvpCL_nAThuD5CXfY0_gMG3Xg3zUDH4YU",
+            authDomain: "tactics-arena-5083a.firebaseapp.com",
+            projectId: "tactics-arena-5083a",
+            storageBucket: "tactics-arena-5083a.firebasestorage.app",
+            messagingSenderId: "362719849853",
+            appId: "1:362719849853:web:c954876eb249b3f1813014",
+        };
+
+        // Initialisation du service Firebase (v8)
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth(); // Utilisation de app.auth() du SDK v8
+
+        // Ciblages des éléments du DOM
+        const loginForm = document.getElementById('login-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const messageDiv = document.getElementById('auth-message');
+
+        // Fonction pour gérer la soumission du formulaire
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            messageDiv.textContent = ''; 
+            messageDiv.style.color = '#FF4500';
+
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            // Appel de la fonction de connexion de Firebase (v8)
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Succès
+                    const user = userCredential.user;
+                    messageDiv.style.color = 'green';
+                    messageDiv.textContent = `Connexion réussie ! Bienvenue ${user.email}. Redirection...`;
+                    
+                    // Rediriger l'utilisateur vers la page principale
+                    setTimeout(() => {
+                         window.location.href = 'index.html'; 
+                    }, 2000); 
+                })
+                .catch((error) => {
+                    // Échec
+                    let errorMessage = error.message;
+
+                    // Traduction des erreurs courantes
+                    if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+                        errorMessage = "E-mail ou mot de passe incorrect.";
+                    } else if (error.code === 'auth/invalid-email') {
+                        errorMessage = "L'adresse e-mail n'est pas valide.";
+                    }
+                    
+                    messageDiv.textContent = `Erreur : ${errorMessage}`;
+                });
+        });
+    </script>
 </body>
 </html>
-
