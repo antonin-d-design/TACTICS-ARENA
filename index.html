@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* [ ... Toutes les règles CSS précédentes ... ] */
         :root {
             --color-primary: #FFFFFF; 
             --color-secondary: #FF4500; /* Votre orange */
@@ -80,18 +79,13 @@
             font-weight: 700;
             padding: 15px 15px; /* Réduit le padding pour compenser le rapprochement */
             font-size: 1.1rem;
-            /* Mise à jour : Retire background-color de la transition, enlève position: relative */
             transition: color 0.3s ease, transform 0.3s ease;
-            /* Suppression des propriétés liées au soulignement et à l'encadrement */
         }
-
-        /* Suppression complète des règles .nav-button::after et .nav-button:hover::after pour retirer le soulignement */
         
         /* NOUVELLE ANIMATION DE SURVOL demandée : Texte orange et grossissement léger (scale), sans encadrement ni fond */
         .nav-button:hover {
             color: var(--color-secondary); /* Texte en orange */
             transform: scale(1.05); /* L'élément grandit légèrement */
-            /* Suppression du background-color: rgba(255, 69, 0, 0.1) */
         }
         
         .header-cta-container {
@@ -329,9 +323,9 @@
         </div>    
         <nav class="main-nav">
             <a href="./news.html" class="nav-button">News</a>
-            <!-- BOUTON WIKI AJOUTÉ ICI -->
-            <a href="./wiki.html" class="nav-button">wiki</a>
+            <a href="./wiki.html" class="nav-button">Wiki</a>
             <a href="./recrutement.html" class="nav-button">Recrutement</a>
+            <a href="./cgu.html" class="nav-button">CGU</a> 
         </nav>
         <div class="header-cta-container">
             <a href="./pagedeconnexion.html" class="login-btn">Connexion</a> 
@@ -374,7 +368,7 @@
         <div class="footer-links">
             <a href="./mentionlégal.html">Mentions Légales</a>
             <a href="./rgpd.html">Politique de Confidentialité (RGPD)</a>
-            <a href="./cgu.html>Conditions Générales d'Utilisation (CGU)</a>
+            <a href="./cgu.html">Conditions Générales d'Utilisation (CGU)</a>
             <a href="/contact">Contact</a>
         </div>
     </footer>
@@ -382,8 +376,6 @@
 </body>
 
 </html>
-
-
 
 
 
