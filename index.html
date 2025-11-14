@@ -76,10 +76,9 @@
 
         .navbar {
             display: flex;
-            /* Changement: Justification à gauche pour décaler le logo */
             justify-content: flex-start; 
             align-items: center;
-            gap: 40px; /* Espace entre les éléments principaux */
+            gap: 40px; 
         }
 
         .logo {
@@ -89,7 +88,6 @@
             color: var(--primary-orange);
             letter-spacing: -1px;
             animation: bounceIn 1s ease-out;
-            /* Logo décalé à gauche par défaut avec flex-start */
         }
 
         .logo span {
@@ -99,8 +97,7 @@
         .nav-links {
             display: flex;
             gap: 30px;
-            /* Déplace les liens de navigation au centre */
-            margin-right: auto; 
+            margin-right: auto; /* Pousse les boutons à droite */
         }
 
         .nav-links a {
@@ -168,7 +165,7 @@
             transform: translateY(-1px);
         }
         
-        /* --- Hero Section (Reste inchangé pour le style) --- */
+        /* --- Hero Section --- */
         .hero {
             background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
             padding: 100px 0;
@@ -247,20 +244,20 @@
             animation: none;
         }
 
-        /* --- Sections d'Articles (Reste inchangé) --- */
+        /* --- Sections d'Articles --- */
         .articles-section {
             padding: 80px 0;
             background: var(--bg-color);
         }
 
         .articles-grid {
+            /* Changement: Seulement 3 colonnes pour les 3 infos */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .article-card {
-            /* Styles des cartes inchangés */
             background: var(--white);
             border-radius: 10px;
             overflow: hidden;
@@ -317,7 +314,7 @@
             color: var(--primary-orange);
         }
 
-        /* --- Footer (Reste inchangé) --- */
+        /* --- Footer --- */
         .main-footer {
             background: var(--dark-grey);
             color: var(--light-grey);
@@ -374,10 +371,10 @@
             100% { transform: translate(0, 0); }
         }
 
+        /* Délai d'apparition des 3 cartes */
         .article-card:nth-child(1) { animation-delay: 0.1s; }
         .article-card:nth-child(2) { animation-delay: 0.2s; }
         .article-card:nth-child(3) { animation-delay: 0.3s; }
-        .article-card:nth-child(4) { animation-delay: 0.4s; }
         
         @keyframes fadeInUp {
             0% {
@@ -399,7 +396,7 @@
             }
             
             .nav-links {
-                order: 3; /* Déplace la navigation en dessous du logo et des boutons sur petits écrans */
+                order: 3; 
                 width: 100%;
                 justify-content: center;
                 margin-right: 0;
@@ -460,7 +457,7 @@
                 <div class="article-card">
                     <img src="https://via.placeholder.com/600x400/FFA500/FFFFFF?text=Article+1" alt="Image de l'article 1">
                     <div class="article-content">
-                        <h3>L'Impact de l'IA sur l'Emploi en 2024</h3>
+                        <h3>L'Impact de l'IA sur l'Emploi en 2025</h3>
                         <p>Une analyse approfondie des tendances actuelles et futures de l'intelligence artificielle sur le marché du travail.</p>
                         <div class="meta">
                             <span><i class="fas fa-calendar-alt"></i> 14 Nov 2025</span>
@@ -493,18 +490,7 @@
                     </div>
                 </div>
 
-                <div class="article-card">
-                    <img src="https://via.placeholder.com/600x400/FF6B00/FFFFFF?text=Article+4" alt="Image de l'article 4">
-                    <div class="article-content">
-                        <h3>La Cryptomonnaie Face à la Régulation Globale</h3>
-                        <p>Panorama des législations émergentes et de leur impact sur le marché crypto.</p>
-                        <div class="meta">
-                            <span><i class="fas fa-calendar-alt"></i> 11 Nov 2025</span>
-                            <span><i class="fas fa-tags"></i> Finance</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -513,8 +499,7 @@
             <div class="footer-links">
                 <a href="#">Mentions Légales</a>
                 <a href="#">Politique de Confidentialité</a>
-                <a href="#">Plan du Site</a>
-            </div>
+                </div>
             <p>&copy; 2025 Media Moderne. Tous droits réservés.</p>
         </div>
     </footer>
@@ -533,6 +518,7 @@
 
 </body>
 </html>
+
 
 
 
