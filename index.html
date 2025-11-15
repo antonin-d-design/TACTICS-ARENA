@@ -9,8 +9,8 @@
     <style>
         /* Variables CSS pour les couleurs */
         :root {
-            --primary-orange: #FF6B00; 
-            --light-orange: #FFA500; 
+            --primary-orange: #FF6B00;
+            --light-orange: #FFA500;
             --dark-grey: #333;
             --medium-grey: #555;
             --light-grey: #f4f4f4;
@@ -71,14 +71,14 @@
 
         .navbar {
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
         }
 
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 40px; 
+            gap: 40px;
         }
 
         /* 1. STYLES DU LOGO POINT ZÉRO */
@@ -105,9 +105,13 @@
             color: var(--primary-orange); /* "Zéro" reste orange */
         }
 
-      
-
-        .nav-links a {
+        
+        .nav-links {
+            display: flex; /* Ajout du display pour gérer l'alignement des liens */
+            gap: 30px;
+        }
+        
+        .nav-links a, .nav-left > a:not(.logo) { /* Cible le nouveau lien "Toutes les Actus" et les liens de nav existants */
             color: var(--dark-grey); /* Texte en noir */
             font-weight: 600;
             font-size: 1.1em; /* Un peu plus gros */
@@ -116,7 +120,7 @@
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        .nav-links a::after {
+        .nav-links a::after, .nav-left > a:not(.logo)::after {
             content: '';
             position: absolute;
             width: 0;
@@ -128,12 +132,12 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-left > a:not(.logo):hover {
             color: var(--primary-orange); /* Texte devient orange */
             transform: scale(1.05); /* Légère grossissement */
         }
         
-        .nav-links a:hover::after {
+        .nav-links a:hover::after, .nav-left > a:not(.logo):hover::after {
             width: 100%; /* Soulignement orange complet */
         }
 
@@ -153,7 +157,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             display: inline-block;
-            border: 2px solid var(--light-grey); 
+            border: 2px solid var(--light-grey);
         }
 
         .btn-connect {
@@ -171,7 +175,7 @@
         /* Effet de survol style cadre (zoom et ombre) */
         .btn-auth:hover {
             transform: scale(1.05); /* L'effet stylisé demandé */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-connect:hover {
@@ -195,14 +199,14 @@
 
         .hero h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 4em; 
+            font-size: 4em;
             margin-bottom: 20px;
-            color: var(--primary-orange); 
-            font-weight: 800; 
+            color: var(--primary-orange);
+            font-weight: 800;
         }
 
         .hero h1 span {
-            color: var(--dark-grey); 
+            color: var(--dark-grey);
         }
 
         /* NOUVEAU STYLE AJOUTÉ POUR LE BOUTON PRINCIPAL DU HERO */
@@ -238,8 +242,8 @@
         }
         
         .article-card-link {
-            text-decoration: none; 
-            color: inherit; 
+            text-decoration: none;
+            color: inherit;
             display: flex;
             height: 100%;
         }
@@ -264,11 +268,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0; /* Important pour l'animation */
-            padding-top: 0; 
+            padding-top: 0;
             width: 100%;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         /* Délai d'animation pour les 6 cartes */
         .articles-grid a:nth-child(1) .article-card { animation-delay: 0.1s; }
@@ -286,22 +290,22 @@
 
 
         .card-visual {
-            height: 10px; 
+            height: 10px;
             background: linear-gradient(90deg, var(--primary-orange) 0%, var(--light-orange) 100%);
-            display: block; 
-            font-size: 0; 
+            display: block;
+            font-size: 0;
         }
 
         .article-content {
             padding: 25px;
-            flex-grow: 1; 
+            flex-grow: 1;
         }
         
         .article-content .meta {
             font-size: 0.8em;
             color: #999;
-            padding: 0 25px 25px; 
-            margin-top: auto; 
+            padding: 0 25px 25px;
+            margin-top: auto;
         }
 
         /* --- Footer --- */
@@ -336,6 +340,7 @@
             .nav-links {
                 display: none; /* Cache la navigation principale sur petit écran */
             }
+            /* Affiche "Toutes les Actus" sur mobile s'il y a de la place, sinon il reste dans le nav-left */
             .navbar {
                 justify-content: space-around;
             }
@@ -356,6 +361,8 @@
             <nav class="navbar">
                 <div class="nav-left">
                     <a href="index.html" class="logo">Point<span> Zéro</span></a>
+                    
+                    <a href="#articles" class="nav-link-actus">Toutes les Actus</a>
                     
                     <ul class="nav-links">
                         
