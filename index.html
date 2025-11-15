@@ -117,7 +117,7 @@
             font-size: 1.1em; /* Un peu plus gros */
             position: relative;
             padding: 5px 0;
-            transition: color 0.3s ease, transform 0.3s ease; /* Ajout du transform pour l'agrandissement */
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-links a::after {
@@ -157,7 +157,6 @@
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             display: inline-block;
-            /* Ajout d'une petite bordure initiale pour le cadre */
             border: 2px solid var(--light-grey); 
         }
 
@@ -191,8 +190,7 @@
             box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
         }
         
-        /* --- Hero Section, Articles, Footer (Inchagés) --- */
-        
+        /* --- Hero Section (Inchagée) --- */
         .hero {
             background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
             padding: 100px 0;
@@ -210,20 +208,25 @@
         .hero h1 span {
             color: var(--dark-grey); 
         }
-        /* ... Styles des autres sections inchangés (articles-section, articles-grid, footer) ... */
+
+        /* --- Sections d'Articles (CSS pour l'uniformité) --- */
+        .articles-section {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
 
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            align-items: stretch; 
+            align-items: stretch; /* CLÉ pour uniformiser la hauteur des cartes */
         }
         
         .article-card-link {
             text-decoration: none; 
             color: inherit; 
-            display: flex; 
-            height: 100%; 
+            display: flex; /* CLÉ: transforme le lien en conteneur flex */
+            height: 100%; /* CLÉ: le lien prend toute la hauteur de la grille */
         }
 
         .article-card {
@@ -237,8 +240,8 @@
             padding-top: 0; 
             width: 100%;
             display: flex; 
-            flex-direction: column;
-            justify-content: space-between; 
+            flex-direction: column; /* Organise le contenu verticalement */
+            justify-content: space-between; /* Aide à pousser les métadonnées en bas */
         }
 
         .card-visual {
@@ -250,7 +253,7 @@
 
         .article-content {
             padding: 25px;
-            flex-grow: 1; 
+            flex-grow: 1; /* Permet au contenu variable de prendre l'espace restant */
         }
         
         .article-content .meta {
@@ -260,6 +263,7 @@
             margin-top: auto; 
         }
 
+        /* --- Footer (Inchagé) --- */
         .main-footer {
             background: var(--dark-grey);
             color: var(--light-grey);
@@ -418,6 +422,7 @@
 
 </body>
 </html>
+
 
 
 
