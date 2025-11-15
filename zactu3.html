@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financement Études : Le guide complet pour étudier sans stresser | Point Zéro</title>
+    <title>Les Influenceurs : Encore Pertinents ? Analyse Complète | Point Zéro</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght=400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@400;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* Variables CSS (IDENTIQUES À VOTRE SITE) */
         :root {
-            --primary-orange: #FF6B00; 
-            --light-orange: #FFA500; 
+            --primary-orange: #FF6B00;
+            --light-orange: #FFA500;
             --dark-grey: #333;
             --medium-grey: #555;
             --light-grey: #f4f4f4;
             --white: #ffffff;
             --text-color: var(--dark-grey);
             --bg-color: var(--white);
+            --border-color: #ddd; /* Nouvelle variable pour les bordures de journal */
+            --paper-bg: #fdfdfd; /* Une couleur légèrement cassée pour le papier */
         }
 
         /* Réinitialisation de base (IDENTIQUES À VOTRE SITE) */
@@ -70,14 +72,14 @@
 
         .navbar {
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
         }
 
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 40px; 
+            gap: 40px;
         }
 
         .logo {
@@ -117,7 +119,7 @@
             font-size: 0.9em;
             font-weight: 600;
             display: inline-block;
-            border: 2px solid var(--light-grey); 
+            border: 2px solid var(--light-grey);
         }
 
         .btn-connect {
@@ -135,84 +137,147 @@
         /* --- STYLES SPÉCIFIQUES À LA PAGE ARTICLE --- */
         /* ------------------------------------------- */
 
-        .article-hero {
-            position: relative;
-            height: 400px; /* Hauteur de la bannière */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Nouvelle typographie pour les titres de journaux */
+        h1, h2, h3, .section-title, .news-kicker {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .article-wrapper {
+            background-color: var(--paper-bg); /* Fond couleur papier */
+            border: 1px solid var(--border-color);
+            margin: 40px auto;
+            max-width: 1000px; /* Un peu plus large pour les colonnes */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        /* Header du "journal" avec titre principal et date */
+        .journal-header {
             text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--dark-grey);
+            padding-bottom: 20px;
         }
 
-        .article-hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.5); /* Assombrir l'image pour la lisibilité du texte */
+        .journal-logo {
+            font-family: 'Playfair Display', serif; /* Typo journal */
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .journal-logo span {
+            color: var(--primary-orange);
         }
 
-        .article-hero-content {
-            position: absolute;
-            z-index: 10;
-            color: var(--white);
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .article-hero-content h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            line-height: 1.1;
-            font-weight: 800;
-        }
-
-        .article-meta {
+        .journal-date {
             font-size: 0.9em;
-            opacity: 0.9;
-            margin-top: 20px;
+            color: var(--medium-grey);
         }
 
-        .article-meta i {
+        /* Section principale du titre de l'article */
+        .article-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-intro h1 {
+            font-size: 3.8em;
+            color: var(--dark-grey);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
+        }
+
+        .article-intro .news-kicker { /* Sorte de sous-titre accrocheur */
+            font-size: 1.5em;
+            color: var(--primary-orange);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .article-intro .article-meta {
+            font-size: 0.9em;
+            color: var(--medium-grey);
+        }
+
+        .article-intro .article-meta i {
             margin-right: 5px;
             color: var(--primary-orange);
         }
         
-        /* Contenu de l'article */
-        .article-body {
-            max-width: 800px; /* Largeur de texte optimisée pour la lecture */
-            margin: 50px auto;
-            padding: 0 20px;
+        /* Layout principal du contenu en colonnes */
+        .article-content-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Par défaut une seule colonne pour le mobile */
+            gap: 30px; /* Espace entre les colonnes */
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+        
+        /* Mise en page pour les ordinateurs de bureau (2 colonnes) */
+        @media (min-width: 768px) {
+            .article-content-grid {
+                grid-template-columns: 2fr 1fr; /* Deux colonnes: 2/3 pour le contenu, 1/3 pour la sidebar */
+            }
+        }
+        @media (min-width: 1024px) {
+            .article-content-grid {
+                grid-template-columns: repeat(3, 1fr); /* Trois colonnes pour les très grands écrans */
+            }
+            .main-article-column {
+                grid-column: span 2; /* Le contenu principal prend 2 colonnes */
+            }
         }
 
-        .article-body h2 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--primary-orange);
-            font-size: 2em;
-            margin-top: 40px;
+
+        .main-article-column {
+            font-family: 'Montserrat', sans-serif; /* Texte principal en Montserrat */
+            line-height: 1.7;
+            font-size: 1.05em;
+            color: var(--dark-grey);
+            text-align: justify; /* Justifier le texte pour un look journal */
+        }
+
+        .main-article-column h2 {
+            font-family: 'Playfair Display', serif; /* Titres de section en Playfair */
+            color: var(--dark-grey);
+            font-size: 2.2em;
+            margin-top: 35px;
             margin-bottom: 15px;
-            border-left: 4px solid var(--primary-orange);
-            padding-left: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            line-height: 1.2;
+            text-align: left;
         }
 
-        .article-body p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            color: var(--medium-grey);
-            line-height: 1.8;
+        .main-article-column h3 {
+             font-family: 'Playfair Display', serif;
+            color: var(--primary-orange);
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        .article-body ul {
+        .main-article-column p {
+            margin-bottom: 1.2em; /* Plus d'espace entre les paragraphes */
+        }
+
+        .main-article-column ul {
             list-style: disc;
             margin-left: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 1.2em;
         }
 
-        .article-body li {
-            margin-bottom: 10px;
-            font-size: 1.05em;
-            color: var(--medium-grey);
+        .main-article-column li {
+            margin-bottom: 0.5em;
+            font-size: 1em;
         }
 
         .article-quote {
@@ -223,16 +288,76 @@
             font-style: italic;
             font-size: 1.2em;
             color: var(--dark-grey);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
-        .article-body img {
+        .image-container {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            margin: 30px 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: block; /* Supprime l'espace sous l'image */
+            margin-bottom: 10px;
         }
         
+        .image-caption {
+            font-size: 0.85em;
+            color: var(--medium-grey);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Colonne latérale pour des "brèves" ou "encadrés" */
+        .sidebar-column {
+            background-color: var(--light-grey);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px; /* Espace si sur mobile */
+        }
+
+        .sidebar-column h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-grey);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed var(--primary-orange); /* Trait hachuré */
+        }
+
+        .sidebar-item {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 20px;
+        }
+        .sidebar-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .sidebar-item h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-orange);
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-item p {
+            font-size: 0.9em;
+            color: var(--medium-grey);
+            line-height: 1.5;
+        }
+
+
         /* Bouton de retour (Exemple de bouton d'action contextuel) */
         .btn-return {
             display: block;
@@ -249,7 +374,6 @@
         .btn-return:hover {
             background: var(--light-orange);
         }
-
 
         /* --- Footer (IDENTIQUES À VOTRE SITE) --- */
         .main-footer {
@@ -286,69 +410,109 @@
         </div>
     </header>
 
-    <article>
-        <section class="article-hero">
-            
-            <img src="URL_IMAGE_LIBRE_DE_DROITS_FOND_ETUDES.jpg" alt="Jeune étudiant souriant gérant son budget" class="article-hero-image">
-            <div class="article-hero-content">
-                <h1>Comment financer tes études sans stresser ? Le guide complet.</h1>
+    <div class="article-wrapper">
+        <div class="journal-header">
+            <h1 class="journal-logo">Point<span> Zéro</span> Info</h1>
+            <p class="journal-date">Édition Spéciale | Samedi 15 Novembre 2025</p>
+        </div>
+
+        <article>
+            <section class="article-intro">
+                <p class="news-kicker">ANALYSE DU PHÉNOMÈNE NUMÉRIQUE</p>
+                <h1>INFLUENCEURS : SONT-ILS ENCORE UTILES OU DÉPASSÉS ?</h1>
                 <p class="article-meta">
-                    Par **Jules DUPONT** - <i class="fas fa-calendar-alt"></i> Publié le 14 Nov 2025 - <i class="fas fa-tags"></i> Argent & Avenir
+                    Par **Morgane LEROY** - <i class="fas fa-calendar-alt"></i> Publié le 15 Nov 2025 - <i class="fas fa-tags"></i> Réseaux Sociaux & Économie
                 </p>
-            </div>
-        </section>
+            </section>
 
-        <section class="article-body">
-            
-            <p><strong>C’est une des plus grosses sources d'inquiétude pour les étudiants : l'argent.</strong> Entre les frais de scolarité, le loyer, la nourriture, et le désir (légitime) de profiter un peu de sa vie étudiante, les chiffres peuvent vite monter. Mais pas de panique. Financer ses études ne doit pas être un parcours du combattant. Il suffit d'être **informé** et **organisé**.</p>
+            <section class="article-content-grid container">
+                <div class="main-article-column">
+                    <p><strong>De stars du web adulées à cibles de la critique, le statut de l'influenceur a connu des hauts et des bas vertigineux.</strong> À l'ère de la sursaturation de contenu et de la méfiance grandissante envers le marketing déguisé, la question se pose : les créateurs de contenu ont-ils encore un rôle pertinent à jouer dans notre quotidien, ou sont-ils devenus un bruit de fond que l'on préfère ignorer ? Il est temps de faire le point.</p>
 
-            <div class="article-quote">
-                « L'information est ton meilleur allié. Connaître toutes les aides auxquelles tu as droit, c'est déjà la moitié du budget assuré. »
-            </div>
+                    <div class="image-container">
+                        <img src="URL_IMAGE_LIBRE_DE_DROITS_INFLUENCEUR_SUR_TELEPHONE.jpg" alt="Jeune personne regardant son téléphone, icônes de réseaux sociaux flottantes.">
+                        <p class="image-caption">L'influence : un pouvoir de plus en plus contesté. Image: Unsplash/Canva</p>
+                    </div>
+                    
+                    <h2>1. L'évolution et la Fragmentation de l'Influence</h2>
+                    
+                    <h3>L'émergence des Micro-Influenceurs</h3>
+                    <p>Le temps des **macro-influenceurs** universels semble révolu. Aujourd'hui, les marques se tournent de plus en plus vers les **micro-influenceurs** (comptant entre 1 000 et 100 000 abonnés). Ces derniers jouissent d'un **taux d'engagement** souvent bien supérieur, car ils cultivent une **niche** très spécifique (cuisine végane, mécanique de précision, histoire médiévale, etc.) et paraissent plus accessibles et authentiques aux yeux de leur communauté.</p>
+                    
+                    <h3>Un marché saturé</h3>
+                    <p>La quantité exponentielle de personnes se déclarant "créateurs de contenu" a inévitablement conduit à une **saturation** du marché. Le consommateur est désormais exposé à un tel flux de promotions qu'il développe une forme de "cécité publicitaire". Dans ce contexte, seule la **qualité**, la **crédibilité** et la **transparence** peuvent garantir l'utilité durable d'un influenceur.</p>
 
-            <h2>1. Les Bourses et Aides du Crous : La base</h2>
-            
-            <p>La première chose à faire est de remplir le **Dossier Social Étudiant (DSE)**. C'est ce dossier qui détermine votre éligibilité à la bourse sur critères sociaux, qui est la plus courante. Ne manquez pas la date limite !</p>
-            
-            <p>Voici les autres aides importantes à considérer :</p>
-            <ul>
-                <li>**Aide au mérite :** Pour les boursiers ayant obtenu une mention Très Bien au Bac. C'est un bonus non négligeable.</li>
-                <li>**Aide à la mobilité :** Si vous devez déménager pour vos études (souvent pour un Master).</li>
-                <li>**Aide spécifique ponctuelle :** Si vous rencontrez une difficulté financière imprévue en cours d'année.</li>
-            </ul>
+                    <div class="article-quote">
+                        « L'influence ne se mesure plus seulement en nombre d'abonnés. Elle est une question de confiance, de spécialisation et d'impact réel sur les décisions d'achat ou les comportements. »
+                    </div>
 
-            <img src="URL_IMAGE_LIBRE_DE_DROITS_BOURSE.jpg" alt="Étudiant utilisant son ordinateur avec des icônes d'argent et de documents" style="width: 70%; display: block; margin-left: auto; margin-right: auto;"> 
+                    <h2>2. Les Apports Indéniables pour les Communautés</h2>
 
-            <h2>2. Jobs Étudiants : Optimiser sans s'épuiser</h2>
+                    <h3>Création de contenu éducatif et spécialisé</h3>
+                    <p>Contrairement aux clichés, de nombreux influenceurs ne font pas uniquement la promotion de produits de beauté ou de placements financiers douteux. Ils jouent un rôle crucial en tant que **médiateurs d'information** ou **pédagogues** :</p>
+                    <ul>
+                        <li>**Vulgarisation scientifique :** Des chaînes YouTube rendent l'astrophysique ou la philosophie accessibles.</li>
+                        <li>**Guides pratiques :** Tutos de développement personnel, conseils de carrière, ou décryptage de l'actualité complexe.</li>
+                        <li>**Soutien à la création :** Ils donnent de la visibilité à de petits artisans ou de jeunes entrepreneurs qui n'ont pas les moyens de faire de la publicité traditionnelle.</li>
+                    </ul>
 
-            <p>Travailler pendant ses études, c'est bien, mais il faut que ça reste **flexible**. L'idéal est de trouver un job avec des horaires adaptés au planning universitaire, ou un travail en ligne qui vous permet de gérer votre temps.</p>
-            
-            <p>Les meilleurs plans (les plus flexibles) :</p>
-            <ul>
-                <li>**Tutorat/Soutien scolaire :** Bien payé et souvent en fin de journée.</li>
-                <li>**Jobs sur le campus :** Les bibliothèques ou services administratifs universitaires ont souvent des postes à temps très partiel.</li>
-                <li>**Coursier ou livreur :** Idéal si vous aimez bouger et que vous avez des disponibilités irrégulières.</li>
-            </ul>
-            
-            <h2>3. Les aides locales et insolites</h2>
+                    <div class="image-container">
+                        <img src="URL_IMAGE_LIBRE_DE_DROITS_VULGARISATION_TECHNIQUE.jpg" alt="Personne animant un tutoriel vidéo sur un ordinateur.">
+                        <p class="image-caption">L'influenceur comme vulgarisateur spécialisé. Image: Pexels</p>
+                    </div>
 
-            <p>Ne vous limitez pas aux aides nationales. Votre région, département ou ville propose souvent des dispositifs méconnus pour les jeunes :</p>
-            
-            <p>Par exemple, certaines régions offrent des **chèques livres** ou des aides pour l'achat de **matériel informatique**. De plus, pensez aux banques : elles proposent souvent des **prêts étudiants garantis par l'État** avec des taux avantageux et des remboursements différés après l'obtention de votre diplôme. C'est une solution à considérer pour les grosses dépenses.</p>
-            
-            <div class="article-quote">
-                « Un prêt étudiant n'est pas forcément une mauvaise chose, s'il est utilisé de manière stratégique et que vous comprenez les conditions de remboursement. »
-            </div>
+                    <h2>3. Le Débat Éthique et la Régulation</h2>
 
-            <p>Pour finir, le secret est de faire un **budget réaliste**. Suivez vos dépenses pendant un mois, et coupez le superflu. Un petit effort d'organisation au début vous garantira une année plus sereine, sans le stress de fin de mois.</p>
+                    <h3>Transparence et crédibilité</h3>
+                    <p>Les scandales et les arnaques ont ébranlé la confiance du public. En réponse, la **réglementation** se renforce (notamment en France avec la loi visant à encadrer l'influence commerciale). L'utilité de l'influenceur est directement liée à sa capacité à être **honnête** sur la nature de ses partenariats et à choisir des produits qui correspondent réellement à ses valeurs. L'influenceur de demain est un **éditeur de confiance**, pas un panneau publicitaire ambulant.</p>
+                    
+                    <h3>La question du "Role Model"</h3>
+                    <p>Au-delà de la consommation, les influenceurs sont des **modèles** pour une partie de la jeunesse. Leur utilité sociale réside alors dans les messages qu'ils véhiculent sur l'acceptation de soi, la santé mentale, l'écologie ou l'engagement citoyen. C'est peut-être là que leur rôle devient le plus important : inspirer positivement, plutôt que vendre à tout prix.</p>
+
+                    <div class="article-quote">
+                        « L'avenir de l'influence passera par une sélection naturelle : seuls les créateurs éthiques, experts dans leur domaine et transparents, conserveront leur audience. »
+                    </div>
+
+                    <p>En conclusion, l'influenceur en tant que concept n'est pas dépassé. C'est le **modèle d'influence** de la star omniprésente et mercantile qui touche à sa fin. L'utilité réside désormais dans la **spécialisation**, l'**authenticité** et la **valeur éducative** ou communautaire réelle apportée au public.</p>
+                    
+                </div>
+
+                <div class="sidebar-column">
+                    <h3>À la Une : Brèves & Données Clés</h3>
+                    
+                    <div class="sidebar-item">
+                        <h4>Le Saviez-vous ? (Statistiques)</h4>
+                        <p>Selon une étude récente, **78%** des 18-35 ans se disent plus influencés par un micro-influenceur que par une célébrité traditionnelle pour un achat de niche.</p>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <h4>Définition</h4>
+                        <p>Le **taux d'engagement** est le ratio des interactions (likes, commentaires, partages) sur le nombre d'abonnés. C'est l'indicateur clé de la pertinence actuelle.</p>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <h4>Focus Législation</h4>
+                        <p>La nouvelle loi encadrant l'influence en France oblige désormais les créateurs à clairement mentionner le terme **"Publicité"** ou **"Collaboration Commerciale"** au début de leurs vidéos ou publications.</p>
+                    </div>
+
+                    <div class="image-container">
+                        <img src="URL_IMAGE_LIBRE_DE_DROITS_COMPTEURS_ABONNES.jpg" alt="Compteurs d'abonnés sur une tablette.">
+                        <p class="image-caption">L'engagement prime sur le nombre brut. Image: Pixabay</p>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <h4>Le Revers de la Médaille</h4>
+                        <p>Le secteur est confronté à une forte augmentation des **faux abonnés** et des faux engagements, poussant les marques à devenir plus rigoureuses dans leurs audits de performance.</p>
+                    </div>
+                </div>
+            </section>
             
             <a href="index.html#articles" class="btn-return">
-                <i class="fas fa-arrow-left"></i> Retour aux dernières actualités
+                <i class="fas fa-arrow-left"></i> Retour aux dernières actualités Tech & Culture
             </a>
             
-        </section>
-
-    </article>
+        </article>
+    </div>
 
     <footer class="main-footer">
         <div class="container">
