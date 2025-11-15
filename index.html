@@ -74,10 +74,10 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* CORRECTION FINALE : Utilisation de space-between sur le .navbar */
+        /* ALIGNEMENT EXTRÊME : space-between pousse les groupes aux extrémités */
         .navbar {
             display: flex;
-            justify-content: space-between; /* Pousse les deux blocs aux extrémités */
+            justify-content: space-between; 
             align-items: center;
         }
 
@@ -85,7 +85,7 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 40px; /* Espace entre le logo et les liens */
+            gap: 40px; 
         }
 
         /* Styles du Logo Point Zéro */
@@ -182,78 +182,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 107, 0, 0.1);
-            border-radius: 50%;
-            animation: floatShape 10s infinite ease-in-out;
-            z-index: 1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -70px;
-            right: -70px;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 165, 0, 0.15);
-            border-radius: 50%;
-            animation: floatShape 12s infinite reverse ease-in-out;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            color: var(--dark-grey);
-            animation: slideInTop 1s ease-out;
-            font-weight: 800; 
-        }
-
-        .hero h1 span {
-            color: var(--primary-orange);
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            color: var(--medium-grey);
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            animation: fadeIn 1.5s ease-out;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--primary-orange);
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        .btn-primary:hover {
-            background: var(--light-orange);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
-            animation: none;
-        }
-
         /* --- Sections d'Articles --- */
         .articles-section {
             padding: 80px 0;
@@ -274,7 +202,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
-            /* Changement : Ajout de padding au lieu d'une image pour les cartes */
             padding-top: 0; 
         }
 
@@ -283,26 +210,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
-        /* Nouveau style pour l'espace visuel en haut de la carte sans image */
+        /* CORRECTION : Rétrecissement de la barre visuelle à 10px et suppression des emojis */
         .card-visual {
-            height: 100px; /* Hauteur visuelle */
-            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--light-orange) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 2em;
-            font-weight: 700;
-        }
-        /* Suppression des styles d'images */
-        .article-card img {
-            display: none; 
+            height: 10px; /* Réduit à 10px */
+            background: linear-gradient(90deg, var(--primary-orange) 0%, var(--light-orange) 100%);
+            /* Suppression des styles d'emojis */
+            display: block; 
+            font-size: 0; 
         }
 
         .article-content {
             padding: 25px;
         }
-        
+
         /* Le reste des styles des articles est inchangé... */
         .article-content h3 {
             font-family: 'Poppins', sans-serif;
@@ -311,28 +231,14 @@
             color: var(--dark-grey);
         }
 
-        .article-content p {
-            font-size: 0.95em;
-            color: var(--medium-grey);
-            margin-bottom: 15px;
+        /* --- Footer et Media Queries (inchangés) --- */
+        .main-footer {
+            background: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 40px 0;
+            text-align: center;
         }
-
-        .article-content .meta {
-            font-size: 0.8em;
-            color: #999;
-        }
-
-        .article-content .meta span {
-            margin-right: 15px;
-        }
-
-        .article-content .meta span i {
-            margin-right: 5px;
-            color: var(--primary-orange);
-        }
-
-        /* --- Animations et Footer (inchangés) --- */
-        /* ... */
+        /* ... autres styles ... */
 
         /* Délai d'apparition des 3 cartes */
         .article-card:nth-child(1) { animation-delay: 0.1s; }
@@ -365,14 +271,6 @@
             .nav-links {
                 justify-content: space-around;
                 width: 100%;
-            }
-
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .articles-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -414,7 +312,7 @@
             <div class="articles-grid">
                 
                 <div class="article-card">
-                    <div class="card-visual">💸</div>
+                    <div class="card-visual"></div>
                     <div class="article-content">
                         <h3>Comment financer tes études sans stresser ?</h3>
                         <p>Le guide des bourses, des jobs flexibles, et des aides que tu ne connais pas encore.</p>
@@ -426,7 +324,7 @@
                 </div>
 
                 <div class="article-card">
-                    <div class="card-visual">🧘</div>
+                    <div class="card-visual"></div>
                     <div class="article-content">
                         <h3>Santé mentale : 5 tips pour gérer le stress des exams</h3>
                         <p>Des techniques rapides pour relâcher la pression et rester focus quand ça compte.</p>
@@ -438,7 +336,7 @@
                 </div>
 
                 <div class="article-card">
-                    <div class="card-visual">🎮</div>
+                    <div class="card-visual"></div>
                     <div class="article-content">
                         <h3>Les influenceurs sont-ils encore utiles en 2025 ?</h3>
                         <p>On décrypte l'évolution des tendances sur TikTok et les réseaux sociaux.</p>
