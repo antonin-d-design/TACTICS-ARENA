@@ -3,10 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité | Point Zéro</title>
+    <title>Politique de Confidentialité : Tes Données | Point Zéro</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>/* COPIER/COLLER L'INTÉGRALITÉ DU BLOC <style> DE mentions-legales.html ICI */</style>
+    <style>
+        /* Variables CSS pour les couleurs */
+        :root {
+            --primary-orange: #FF6B00;
+            --light-orange: #FFA500;
+            --dark-grey: #333;
+            --medium-grey: #555;
+            --light-grey: #f4f4f4;
+            --white: #ffffff;
+            --text-color: var(--dark-grey);
+            --bg-color: var(--white);
+        }
+
+        /* Réinitialisation de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-orange);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--light-orange);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background: var(--white);
+            color: var(--dark-grey);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-grey);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* 1. STYLES DU LOGO POINT ZÉRO */
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--dark-grey); /* "Point" en Noir */
+            letter-spacing: -1px;
+            transition: color 0.3s ease;
+        }
+
+        .logo span {
+            color: var(--primary-orange); /* "Zéro" en Orange */
+            transition: color 0.3s ease;
+        }
+
+        /* Effet de survol sur tout le logo (balise <a>) */
+        .logo:hover {
+            color: var(--primary-orange); /* "Point" devient orange */
+        }
+        
+        .logo:hover span {
+            color: var(--primary-orange); /* "Zéro" reste orange */
+        }
+
+        
+        .nav-links {
+            display: flex; /* Ajout du display pour gérer l'alignement des liens */
+            gap: 30px;
+        }
+        
+        .nav-links a, .nav-left > a:not(.logo) { /* Cible le lien "Toutes les Actus" et les liens de nav existants */
+            color: var(--dark-grey); /* Texte en noir */
+            font-weight: 600;
+            font-size: 1.1em; /* Un peu plus gros */
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a::after, .nav-left > a:not(.logo)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-left > a:not(.logo):hover {
+            color: var(--primary-orange); /* Texte devient orange */
+            transform: scale(1.05); /* Légère grossissement */
+        }
+        
+        .nav-links a:hover::after, .nav-left > a:not(.logo):hover::after {
+            width: 100%; /* Soulignement orange complet */
+        }
+
+        /* --- GROUPE DE DROITE : Boutons de Connexion/Inscription --- */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* 3. STYLES DES BOUTONS DE CONNEXION/INSCRIPTION (Cadre stylisé) */
+        .btn-auth {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: inline-block;
+            border: 2px solid var(--light-grey);
+        }
+
+        .btn-connect {
+            color: var(--dark-grey);
+            background: var(--white);
+        }
+
+        .btn-signup {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 2px solid var(--primary-orange);
+            box-shadow: 0 3px 10px rgba(255, 107, 0, 0.2);
+        }
+
+        /* Effet de survol style cadre (zoom et ombre) */
+        .btn-auth:hover {
+            transform: scale(1.05); /* L'effet stylisé demandé */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-connect:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            background: var(--white);
+        }
+
+        .btn-signup:hover {
+            background: var(--light-orange);
+            border-color: var(--light-orange);
+            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
+        }
+        
+        /* --- Styles de la Section Contenu Légal --- */
+        .legal-section {
+            padding: 50px 0 80px 0; 
+            background: var(--bg-color);
+        }
+
+        .legal-section h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--primary-orange);
+            text-align: center;
+        }
+        
+        .legal-section > .container > p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            color: var(--medium-grey);
+        }
+
+        .legal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            color: var(--dark-grey);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            /* Nouveau style : petit trait orange */
+            border-left: 5px solid var(--primary-orange); 
+            padding-left: 15px;
+            line-height: 1.2;
+        }
+
+        .legal-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3em;
+            color: var(--medium-grey);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+
+        .legal-content p, .legal-content li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .legal-content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        
+        /* Liste plus claire pour les types de données */
+        .data-list {
+            list-style-type: '👉 ';
+            padding-left: 40px;
+            font-size: 1em;
+        }
+
+
+        /* --- Footer --- */
+        .main-footer {
+            background: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links-legal a {
+            color: var(--light-grey);
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+
+        .footer-links-legal a:hover {
+            color: var(--primary-orange);
+        }
+
+        .main-footer p {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        
+        /* --- Media Queries pour la responsivité (non demandée mais bonne pratique) --- */
+        @media (max-width: 900px) {
+            .nav-left {
+                gap: 20px;
+            }
+            .nav-links {
+                display: none; 
+            }
+            .navbar {
+                justify-content: space-around;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+            .legal-section h1 {
+                font-size: 2.5em;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
@@ -15,9 +302,12 @@
             <nav class="navbar">
                 <div class="nav-left">
                     <a href="index.html" class="logo">Point<span> Zéro</span></a>
+                    
                     <a href="toutes-les-actus.html" class="nav-link-actus">Toutes les Actus</a>
+                    
                     <ul class="nav-links"></ul>
                 </div>
+                
                 <div class="auth-buttons">
                     <a href="./pagedeconnexion.html" class="btn-auth btn-connect">Connexion</a>
                     <a href="./pageincription.html" class="btn-auth btn-signup">Créer un Compte</a>
@@ -28,31 +318,62 @@
 
     <section class="legal-section">
         <div class="container">
-            <h1>Politique de Confidentialité</h1>
+            <h1>Tes Données : Notre Politique de Confidentialité 🔒</h1>
+            <p>Chez Point Zéro, on est transparents. Cette page explique pourquoi on collecte certaines données, comment on les protège, et surtout, quels sont vos droits. Promis, on ne fait pas de magie noire avec vos infos !</p>
             
             <div class="legal-content">
-                <p>Date de la dernière mise à jour : **15 novembre 2025**</p>
+                <p>Date de mise à jour : **15 novembre 2025**</p>
                 
-                <h2>1. Collecte de l'information</h2>
-                <p>Nous recueillons des informations lorsque vous vous inscrivez sur notre site, lorsque vous vous connectez à votre compte, ou lorsque vous laissez un commentaire. Les informations recueillies incluent votre adresse e-mail, votre nom d’utilisateur et/ou d'autres données nécessaires à l'utilisation des services.</p>
-                
-                <h2>2. Utilisation des informations</h2>
-                <p>Toutes les informations que nous recueillons auprès de vous peuvent être utilisées pour :</p>
+                <h2>1. Quelles données on collecte et pourquoi ?</h2>
+                <p>Nous ne collectons que ce qui est nécessaire pour vous fournir le service Point Zéro.</p>
+
+                <h3>1.1 Les données que vous nous donnez directement :</h3>
+                <ul class="data-list">
+                    <li>**Création de Compte :** Nom d'utilisateur, adresse e-mail.</li>
+                    <li>**Interactions :** Commentaires, messages envoyés via nos formulaires.</li>
+                </ul>
+                <p>Ces données servent à vous identifier, vous permettre de commenter nos articles et vous envoyer des newsletters si vous vous êtes inscrits.</p>
+
+                <h3>1.2 Les données collectées automatiquement (Les cookies) :</h3>
+                <ul class="data-list">
+                    <li>**Données de Navigation :** Votre adresse IP, le navigateur utilisé, les pages que vous visitez.</li>
+                    <li>**Performance :** Mesure du trafic et de l'audience pour savoir quels articles vous plaisent le plus.</li>
+                </ul>
+                <p>Ces données nous aident à améliorer le site, à corriger les bugs et à proposer des articles qui vous intéressent, mais elles sont traitées de manière anonyme ou pseudonymisée.</p>
+
+                <h2>2. Comment on utilise tes données ?</h2>
+                <p>Vos informations sont utilisées pour :</p>
                 <ul>
-                    <li>Personnaliser votre expérience et répondre à vos besoins individuels.</li>
-                    <li>Fournir un contenu éditorial adapté à votre profil.</li>
-                    <li>Améliorer notre site web (sur la base de l'analyse des données d'utilisation).</li>
-                    <li>Améliorer le service client et vos besoins de prise en charge.</li>
+                    <li>Gérer votre accès à l'espace membre (si vous en avez un).</li>
+                    <li>Personnaliser votre expérience (afficher le contenu pertinent).</li>
+                    <li>Assurer la sécurité de notre plateforme (prévenir les abus, le spam).</li>
+                    <li>Envoyer les communications que vous avez demandées (newsletter, alertes).</li>
                 </ul>
                 
-                <h2>3. Confidentialité du commerce en ligne</h2>
-                <p>Nous sommes les seuls propriétaires des informations recueillies sur ce site. Vos informations personnelles ne seront pas vendues, échangées, transférées, ou données à une autre société pour n'importe quelle raison, sans votre consentement, en dehors de ce qui est nécessaire pour répondre à une demande ou une transaction.</p>
+                <h2>3. Est-ce qu'on partage tes données ?</h2>
+                <p>C'est non. Vos données personnelles ne sont **jamais vendues, échangées ou louées** à des tiers ou d'autres entreprises. Nous pouvons cependant les partager avec :</p>
+                <ul>
+                    <li>**Les prestataires techniques :** Les entreprises qui nous aident à faire fonctionner le site (hébergeur, outils d'analyse web). Ces prestataires sont soumis à des obligations de confidentialité strictes.</li>
+                    <li>**La loi :** Si la loi nous y oblige (en cas de réquisition judiciaire).</li>
+                </ul>
 
-                <h2>4. Cookies</h2>
-                <p>Nous utilisons des cookies pour améliorer l'accès à notre site et identifier les visiteurs réguliers. De plus, nos cookies améliorent l'expérience d'utilisateur en suivant et en ciblant ses intérêts. Cependant, cette utilisation des cookies n'est en aucune façon liée à des informations personnelles identifiables sur notre site.</p>
+                <h2>4. Tes Droits (Le RGPD, c'est pour vous !)</h2>
+                <p>En tant qu'utilisateur, vous avez plusieurs droits sur vos données :</p>
+                <ul>
+                    <li>**Droit d'accès :** Demander une copie des données que nous avons sur vous.</li>
+                    <li>**Droit de rectification :** Demander la modification de vos données si elles sont incomplètes ou erronées.</li>
+                    <li>**Droit d'effacement ("droit à l'oubli") :** Demander la suppression de vos données de nos bases.</li>
+                    <li>**Droit d'opposition :** Refuser que vos données soient utilisées pour certains traitements (ex: l'envoi de newsletters).</li>
+                </ul>
+                <p>Pour exercer l'un de ces droits, envoyez un e-mail au contact indiqué dans nos <a href="mentions-legales.html">Mentions Légales</a>. Nous vous répondrons dans un délai maximal d'un mois.</p>
                 
-                <h2>5. Vos droits (RGPD)</h2>
-                <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Vous pouvez exercer ces droits en nous contactant à l'adresse email mentionnée dans les Mentions Légales.</p>
+                <h2>5. Nos Cookies (Les petits fichiers)</h2>
+                <p>Un cookie est un petit fichier texte stocké sur votre ordinateur. Nous utilisons des cookies pour :</p>
+                <ul class="data-list">
+                    <li>**Fonctionnement :** Se souvenir de votre connexion (si vous avez un compte).</li>
+                    <li>**Mesure d'audience :** Analyser comment les gens utilisent le site (via des outils comme Google Analytics, **[À COMPLÉTER : si vous en utilisez]**).</li>
+                </ul>
+                <p>Vous avez la possibilité de désactiver les cookies en modifiant les paramètres de votre navigateur.</p>
             </div>
         </div>
     </section>
@@ -70,6 +391,7 @@
     </footer>
 
     <script>
+        // Script pour l'animation du header au scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.main-header');
             if (window.scrollY > 50) {
