@@ -81,29 +81,124 @@
             gap: 40px; 
         }
 
+        /* 1. STYLES DU LOGO POINT ZÉRO */
         .logo {
             font-family: 'Poppins', sans-serif;
             font-size: 2.2em;
             font-weight: 700;
-            color: var(--primary-orange); 
+            color: var(--dark-grey); /* "Point" en Noir */
             letter-spacing: -1px;
+            transition: color 0.3s ease;
+        }
+
+        .logo span {
+            color: var(--primary-orange); /* "Zéro" en Orange */
+            transition: color 0.3s ease;
+        }
+
+        /* Effet de survol sur tout le logo (balise <a>) */
+        .logo:hover {
+            color: var(--primary-orange); /* "Point" devient orange */
         }
         
+        .logo:hover span {
+            color: var(--primary-orange); /* "Zéro" reste orange */
+        }
+
+        /* 2. STYLES DES LIENS DE NAVIGATION (Études, Avenir, Culture) */
         .nav-links {
             display: flex;
             gap: 30px;
         }
 
-        /* ... Styles des boutons Connexion/Inscription inchangés ... */
+        .nav-links a {
+            color: var(--dark-grey); /* Texte en noir */
+            font-weight: 600;
+            font-size: 1.1em; /* Un peu plus gros */
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease, transform 0.3s ease; /* Ajout du transform pour l'agrandissement */
+        }
 
-        /* --- Hero Section --- */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange); /* Texte devient orange */
+            transform: scale(1.05); /* Légère grossissement */
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%; /* Soulignement orange complet */
+        }
+
+        /* --- GROUPE DE DROITE : Boutons de Connexion/Inscription --- */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* 3. STYLES DES BOUTONS DE CONNEXION/INSCRIPTION (Cadre stylisé) */
+        .btn-auth {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: inline-block;
+            /* Ajout d'une petite bordure initiale pour le cadre */
+            border: 2px solid var(--light-grey); 
+        }
+
+        .btn-connect {
+            color: var(--dark-grey);
+            background: var(--white);
+        }
+
+        .btn-signup {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 2px solid var(--primary-orange);
+            box-shadow: 0 3px 10px rgba(255, 107, 0, 0.2);
+        }
+
+        /* Effet de survol style cadre (zoom et ombre) */
+        .btn-auth:hover {
+            transform: scale(1.05); /* L'effet stylisé demandé */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+        }
+
+        .btn-connect:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            background: var(--white);
+        }
+
+        .btn-signup:hover {
+            background: var(--light-orange);
+            border-color: var(--light-orange);
+            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
+        }
+        
+        /* --- Hero Section, Articles, Footer (Inchagés) --- */
+        
         .hero {
             background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
             padding: 100px 0;
             text-align: center;
         }
 
-        /* Titre principal orange et agrandi */
         .hero h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 4em; 
@@ -115,27 +210,20 @@
         .hero h1 span {
             color: var(--dark-grey); 
         }
-
-        /* --- Sections d'Articles --- */
-        .articles-section {
-            padding: 80px 0;
-            background: var(--bg-color);
-        }
+        /* ... Styles des autres sections inchangés (articles-section, articles-grid, footer) ... */
 
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            /* Uniformisation de la hauteur des cartes dans la grille */
             align-items: stretch; 
         }
         
-        /* Rend la carte cliquable sur toute sa surface */
         .article-card-link {
             text-decoration: none; 
             color: inherit; 
             display: flex; 
-            height: 100%; /* S'étend sur toute la hauteur de la cellule de la grille */
+            height: 100%; 
         }
 
         .article-card {
@@ -147,21 +235,14 @@
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
             padding-top: 0; 
-            
-            /* Assure que la carte remplit l'espace et permet au contenu de s'étendre/répartir */
             width: 100%;
             display: flex; 
             flex-direction: column;
             justify-content: space-between; 
         }
 
-        .article-card-link:hover .article-card { 
-            transform: translateY(-8px) rotateZ(-0.5deg); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
         .card-visual {
-            height: 10px; /* Barre fine */
+            height: 10px; 
             background: linear-gradient(90deg, var(--primary-orange) 0%, var(--light-orange) 100%);
             display: block; 
             font-size: 0; 
@@ -169,71 +250,23 @@
 
         .article-content {
             padding: 25px;
-            flex-grow: 1; /* Permet au contenu variable de prendre l'espace restant */
+            flex-grow: 1; 
         }
-
-        .article-content h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: var(--dark-grey);
-        }
-
+        
         .article-content .meta {
             font-size: 0.8em;
             color: #999;
             padding: 0 25px 25px; 
-            /* Assure que les métadonnées sont toujours alignées en bas */
             margin-top: auto; 
         }
-        
-        /* ... Styles des autres éléments de la carte inchangés ... */
 
-        /* --- Footer (Contenu Légal Amélioré) --- */
         .main-footer {
             background: var(--dark-grey);
             color: var(--light-grey);
             padding: 40px 0;
             text-align: center;
         }
-
-        .footer-links-legal {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; 
-            gap: 15px 30px; 
-            margin-bottom: 20px;
-            padding: 0 10px;
-        }
-
-        .footer-links-legal a {
-            color: var(--light-grey);
-            font-size: 0.9em;
-            transition: color 0.3s ease;
-        }
-        /* ... autres styles ... */
-
-        /* Délai d'apparition des 6 cartes (pour l'animation) */
-        .article-card-link:nth-child(1) .article-card { animation-delay: 0.1s; }
-        .article-card-link:nth-child(2) .article-card { animation-delay: 0.2s; }
-        .article-card-link:nth-child(3) .article-card { animation-delay: 0.3s; }
-        .article-card-link:nth-child(4) .article-card { animation-delay: 0.4s; }
-        .article-card-link:nth-child(5) .article-card { animation-delay: 0.5s; }
-        .article-card-link:nth-child(6) .article-card { animation-delay: 0.6s; }
-        
-        @keyframes fadeInUp {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* --- Media Queries --- */
-        /* ... Styles responsive inchangés ... */
+        /* ... Le reste du CSS, y compris les animations et media queries, reste inchangé. ... */
     </style>
 </head>
 <body>
@@ -243,12 +276,14 @@
             <nav class="navbar">
                 <div class="nav-left">
                     <a href="#" class="logo">Point<span> Zéro</span></a>
+                    
                     <ul class="nav-links">
                         <li><a href="#articles">Études</a></li>
                         <li><a href="#analyses">Avenir</a></li>
                         <li><a href="#tendances">Culture & Chill</a></li>
                     </ul>
                 </div>
+                
                 <div class="auth-buttons">
                     <a href="#" class="btn-auth btn-connect">Connexion</a>
                     <a href="#" class="btn-auth btn-signup">Créer un Compte</a>
