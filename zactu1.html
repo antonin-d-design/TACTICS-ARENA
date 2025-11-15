@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financement Études : Le guide complet pour étudier sans stresser | Point Zéro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght=400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Variables CSS (IDENTIQUES À VOTRE SITE) */
+        :root {
+            --primary-orange: #FF6B00; 
+            --light-orange: #FFA500; 
+            --dark-grey: #333;
+            --medium-grey: #555;
+            --light-grey: #f4f4f4;
+            --white: #ffffff;
+            --text-color: var(--dark-grey);
+            --bg-color: var(--white);
+        }
+
+        /* Réinitialisation de base (IDENTIQUES À VOTRE SITE) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-orange);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--light-orange);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header (IDENTIQUES À VOTRE SITE) --- */
+        .main-header {
+            background: var(--white);
+            color: var(--dark-grey);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-grey);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px; 
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--dark-grey);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark-grey);
+            font-weight: 600;
+            font-size: 1.1em;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-auth {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-block;
+            border: 2px solid var(--light-grey); 
+        }
+
+        .btn-connect {
+            color: var(--dark-grey);
+            background: var(--white);
+        }
+
+        .btn-signup {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 2px solid var(--primary-orange);
+        }
+
+        /* ------------------------------------------- */
+        /* --- STYLES SPÉCIFIQUES À LA PAGE ARTICLE --- */
+        /* ------------------------------------------- */
+
+        .article-hero {
+            position: relative;
+            height: 400px; /* Hauteur de la bannière */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .article-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5); /* Assombrir l'image pour la lisibilité du texte */
+        }
+
+        .article-hero-content {
+            position: absolute;
+            z-index: 10;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .article-meta {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+
+        .article-meta i {
+            margin-right: 5px;
+            color: var(--primary-orange);
+        }
+        
+        /* Contenu de l'article */
+        .article-body {
+            max-width: 800px; /* Largeur de texte optimisée pour la lecture */
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .article-body h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-orange);
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-orange);
+            padding-left: 15px;
+        }
+
+        .article-body p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: var(--medium-grey);
+            line-height: 1.8;
+        }
+
+        .article-body ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .article-body li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: var(--medium-grey);
+        }
+
+        .article-quote {
+            background-color: var(--light-grey);
+            border-left: 5px solid var(--primary-orange);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.2em;
+            color: var(--dark-grey);
+        }
+        
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Bouton de retour (Exemple de bouton d'action contextuel) */
+        .btn-return {
+            display: block;
+            width: fit-content;
+            margin: 50px auto 80px auto;
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-return:hover {
+            background: var(--light-orange);
+        }
+
+
+        /* --- Footer (IDENTIQUES À VOTRE SITE) --- */
+        .main-footer {
+            background: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-links-legal a {
+            color: var(--light-grey);
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="index.html" class="logo">Point<span> Zéro</span></a>
+                    <ul class="nav-links">
+                        <li><a href="etudes.html">Études</a></li>
+                        <li><a href="avenir.html">Avenir</a></li>
+                        <li><a href="culture.html">Culture & Chill</a></li>
+                    </ul>
+                </div>
+                <div class="auth-buttons">
+                    <a href="connexion.html" class="btn-auth btn-connect">Connexion</a>
+                    <a href="inscription.html" class="btn-auth btn-signup">Créer un Compte</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <section class="article-hero">
+            
+            <img src="URL_IMAGE_LIBRE_DE_DROITS_FOND_ETUDES.jpg" alt="Jeune étudiant souriant gérant son budget" class="article-hero-image">
+            <div class="article-hero-content">
+                <h1>Comment financer tes études sans stresser ? Le guide complet.</h1>
+                <p class="article-meta">
+                    Par **Jules DUPONT** - <i class="fas fa-calendar-alt"></i> Publié le 14 Nov 2025 - <i class="fas fa-tags"></i> Argent & Avenir
+                </p>
+            </div>
+        </section>
+
+        <section class="article-body">
+            
+            <p><strong>C’est une des plus grosses sources d'inquiétude pour les étudiants : l'argent.</strong> Entre les frais de scolarité, le loyer, la nourriture, et le désir (légitime) de profiter un peu de sa vie étudiante, les chiffres peuvent vite monter. Mais pas de panique. Financer ses études ne doit pas être un parcours du combattant. Il suffit d'être **informé** et **organisé**.</p>
+
+            <div class="article-quote">
+                « L'information est ton meilleur allié. Connaître toutes les aides auxquelles tu as droit, c'est déjà la moitié du budget assuré. »
+            </div>
+
+            <h2>1. Les Bourses et Aides du Crous : La base</h2>
+            
+            <p>La première chose à faire est de remplir le **Dossier Social Étudiant (DSE)**. C'est ce dossier qui détermine votre éligibilité à la bourse sur critères sociaux, qui est la plus courante. Ne manquez pas la date limite !</p>
+            
+            <p>Voici les autres aides importantes à considérer :</p>
+            <ul>
+                <li>**Aide au mérite :** Pour les boursiers ayant obtenu une mention Très Bien au Bac. C'est un bonus non négligeable.</li>
+                <li>**Aide à la mobilité :** Si vous devez déménager pour vos études (souvent pour un Master).</li>
+                <li>**Aide spécifique ponctuelle :** Si vous rencontrez une difficulté financière imprévue en cours d'année.</li>
+            </ul>
+
+            <img src="URL_IMAGE_LIBRE_DE_DROITS_BOURSE.jpg" alt="Étudiant utilisant son ordinateur avec des icônes d'argent et de documents" style="width: 70%; display: block; margin-left: auto; margin-right: auto;"> 
+
+            <h2>2. Jobs Étudiants : Optimiser sans s'épuiser</h2>
+
+            <p>Travailler pendant ses études, c'est bien, mais il faut que ça reste **flexible**. L'idéal est de trouver un job avec des horaires adaptés au planning universitaire, ou un travail en ligne qui vous permet de gérer votre temps.</p>
+            
+            <p>Les meilleurs plans (les plus flexibles) :</p>
+            <ul>
+                <li>**Tutorat/Soutien scolaire :** Bien payé et souvent en fin de journée.</li>
+                <li>**Jobs sur le campus :** Les bibliothèques ou services administratifs universitaires ont souvent des postes à temps très partiel.</li>
+                <li>**Coursier ou livreur :** Idéal si vous aimez bouger et que vous avez des disponibilités irrégulières.</li>
+            </ul>
+            
+            <h2>3. Les aides locales et insolites</h2>
+
+            <p>Ne vous limitez pas aux aides nationales. Votre région, département ou ville propose souvent des dispositifs méconnus pour les jeunes :</p>
+            
+            <p>Par exemple, certaines régions offrent des **chèques livres** ou des aides pour l'achat de **matériel informatique**. De plus, pensez aux banques : elles proposent souvent des **prêts étudiants garantis par l'État** avec des taux avantageux et des remboursements différés après l'obtention de votre diplôme. C'est une solution à considérer pour les grosses dépenses.</p>
+            
+            <div class="article-quote">
+                « Un prêt étudiant n'est pas forcément une mauvaise chose, s'il est utilisé de manière stratégique et que vous comprenez les conditions de remboursement. »
+            </div>
+
+            <p>Pour finir, le secret est de faire un **budget réaliste**. Suivez vos dépenses pendant un mois, et coupez le superflu. Un petit effort d'organisation au début vous garantira une année plus sereine, sans le stress de fin de mois.</p>
+            
+            <a href="index.html#articles" class="btn-return">
+                <i class="fas fa-arrow-left"></i> Retour aux dernières actualités
+            </a>
+            
+        </section>
+
+    </article>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links-legal">
+                <a href="mentions-legales.html">Mentions Légales</a>
+                <a href="cgu.html">Conditions Générales d'Utilisation (CGU)</a>
+                <a href="confidentialite.html">Politique de Confidentialité</a>
+                <a href="cgv.html">Conditions Générales de Vente (CGV)</a>
+            </div>
+            <p>&copy; 2025 Point Zéro. Le média 100% jeunesse. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
