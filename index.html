@@ -9,8 +9,8 @@
     <style>
         /* Variables CSS pour les couleurs */
         :root {
-            --primary-orange: #FF6B00; /* Orange vif */
-            --light-orange: #FFA500; /* Orange plus clair pour les accents */
+            --primary-orange: #FF6B00; 
+            --light-orange: #FFA500; 
             --dark-grey: #333;
             --medium-grey: #555;
             --light-grey: #f4f4f4;
@@ -74,21 +74,18 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* ALIGNEMENT EXTRÊME : space-between pousse les groupes aux extrémités */
         .navbar {
             display: flex;
             justify-content: space-between; 
             align-items: center;
         }
 
-        /* GROUPE DE GAUCHE : Logo + Liens */
         .nav-left {
             display: flex;
             align-items: center;
             gap: 40px; 
         }
 
-        /* Styles du Logo Point Zéro */
         .logo {
             font-family: 'Poppins', sans-serif;
             font-size: 2.2em;
@@ -182,6 +179,53 @@
             overflow: hidden;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* MODIFICATION : Agrandissement et couleur orange pour le titre principal */
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4em; /* Agrandissement */
+            margin-bottom: 20px;
+            color: var(--primary-orange); /* Couleur Orange */
+            animation: slideInTop 1s ease-out;
+            font-weight: 800; 
+        }
+
+        .hero h1 span {
+            color: var(--dark-grey); /* Garde le "ta génération" en gris foncé */
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: var(--medium-grey);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            animation: fadeIn 1.5s ease-out;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-primary:hover {
+            background: var(--light-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
+            animation: none;
+        }
+
         /* --- Sections d'Articles --- */
         .articles-section {
             padding: 80px 0;
@@ -190,10 +234,18 @@
 
         .articles-grid {
             display: grid;
+            /* Six cadres : 3 colonnes, 2 rangées */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
+        /* Styles pour rendre la carte cliquable */
+        .article-card-link {
+            text-decoration: none; /* Enlève le soulignement du lien */
+            color: inherit; /* Hérite de la couleur du texte */
+            display: block; /* Important pour que toute la carte soit cliquable */
+        }
+
         .article-card {
             background: var(--white);
             border-radius: 10px;
@@ -205,16 +257,14 @@
             padding-top: 0; 
         }
 
-        .article-card:hover {
+        .article-card-link:hover .article-card { /* Animation au survol du lien */
             transform: translateY(-8px) rotateZ(-0.5deg); 
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
-        /* CORRECTION : Rétrecissement de la barre visuelle à 10px et suppression des emojis */
         .card-visual {
-            height: 10px; /* Réduit à 10px */
+            height: 10px; /* Barre fine de 10px */
             background: linear-gradient(90deg, var(--primary-orange) 0%, var(--light-orange) 100%);
-            /* Suppression des styles d'emojis */
             display: block; 
             font-size: 0; 
         }
@@ -223,7 +273,6 @@
             padding: 25px;
         }
 
-        /* Le reste des styles des articles est inchangé... */
         .article-content h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.5em;
@@ -231,19 +280,36 @@
             color: var(--dark-grey);
         }
 
-        /* --- Footer et Media Queries (inchangés) --- */
-        .main-footer {
-            background: var(--dark-grey);
-            color: var(--light-grey);
-            padding: 40px 0;
-            text-align: center;
+        .article-content p {
+            font-size: 0.95em;
+            color: var(--medium-grey);
+            margin-bottom: 15px;
         }
-        /* ... autres styles ... */
 
-        /* Délai d'apparition des 3 cartes */
-        .article-card:nth-child(1) { animation-delay: 0.1s; }
-        .article-card:nth-child(2) { animation-delay: 0.2s; }
-        .article-card:nth-child(3) { animation-delay: 0.3s; }
+        .article-content .meta {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        .article-content .meta span {
+            margin-right: 15px;
+        }
+
+        .article-content .meta span i {
+            margin-right: 5px;
+            color: var(--primary-orange);
+        }
+
+        /* --- Animations Keyframes (ajustement pour les 6 cartes) --- */
+        /* ... */
+
+        /* Délai d'apparition des 6 cartes */
+        .article-card-link:nth-child(1) .article-card { animation-delay: 0.1s; }
+        .article-card-link:nth-child(2) .article-card { animation-delay: 0.2s; }
+        .article-card-link:nth-child(3) .article-card { animation-delay: 0.3s; }
+        .article-card-link:nth-child(4) .article-card { animation-delay: 0.4s; }
+        .article-card-link:nth-child(5) .article-card { animation-delay: 0.5s; }
+        .article-card-link:nth-child(6) .article-card { animation-delay: 0.6s; }
         
         @keyframes fadeInUp {
             0% {
@@ -256,21 +322,33 @@
             }
         }
 
+        /* --- Footer --- */
+        .main-footer {
+            background: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 40px 0;
+            text-align: center;
+        }
+
         /* --- Media Queries pour le Responsive Design --- */
         @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.5em; /* Ajustement sur mobile */
+            }
             .navbar {
                 flex-direction: column; 
                 gap: 20px;
             }
-            
             .nav-left, .auth-buttons {
                 width: 100%;
                 justify-content: center; 
             }
-
             .nav-links {
                 justify-content: space-around;
                 width: 100%;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -282,14 +360,12 @@
             <nav class="navbar">
                 <div class="nav-left">
                     <a href="#" class="logo">Point<span> Zéro</span></a>
-                    
                     <ul class="nav-links">
                         <li><a href="#articles">Études</a></li>
                         <li><a href="#analyses">Avenir</a></li>
                         <li><a href="#tendances">Culture & Chill</a></li>
                     </ul>
                 </div>
-
                 <div class="auth-buttons">
                     <a href="#" class="btn-auth btn-connect">Connexion</a>
                     <a href="#" class="btn-auth btn-signup">Créer un Compte</a>
@@ -311,41 +387,89 @@
             <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 60px; color: var(--dark-grey); font-family: 'Poppins', sans-serif;">Dernières Actus. 🔥</h2>
             <div class="articles-grid">
                 
-                <div class="article-card">
-                    <div class="card-visual"></div>
-                    <div class="article-content">
-                        <h3>Comment financer tes études sans stresser ?</h3>
-                        <p>Le guide des bourses, des jobs flexibles, et des aides que tu ne connais pas encore.</p>
-                        <div class="meta">
-                            <span><i class="fas fa-calendar-alt"></i> 14 Nov 2025</span>
-                            <span><i class="fas fa-tags"></i> Argent & Avenir</span>
+                <a href="#article1" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Comment financer tes études sans stresser ?</h3>
+                            <p>Le guide des bourses, des jobs flexibles, et des aides que tu ne connais pas encore.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 14 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Argent & Avenir</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card">
-                    <div class="card-visual"></div>
-                    <div class="article-content">
-                        <h3>Santé mentale : 5 tips pour gérer le stress des exams</h3>
-                        <p>Des techniques rapides pour relâcher la pression et rester focus quand ça compte.</p>
-                        <div class="meta">
-                            <span><i class="fas fa-calendar-alt"></i> 13 Nov 2025</span>
-                            <span><i class="fas fa-tags"></i> Bien-être</span>
+                <a href="#article2" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Santé mentale : 5 tips pour gérer le stress des exams</h3>
+                            <p>Des techniques rapides pour relâcher la pression et rester focus quand ça compte.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 13 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Bien-être</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="article-card">
-                    <div class="card-visual"></div>
-                    <div class="article-content">
-                        <h3>Les influenceurs sont-ils encore utiles en 2025 ?</h3>
-                        <p>On décrypte l'évolution des tendances sur TikTok et les réseaux sociaux.</p>
-                        <div class="meta">
-                            <span><i class="fas fa-calendar-alt"></i> 12 Nov 2025</span>
-                            <span><i class="fas fa-tags"></i> Culture & Tech</span>
+                <a href="#article3" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Les influenceurs sont-ils encore utiles en 2025 ?</h3>
+                            <p>On décrypte l'évolution des tendances sur TikTok et les réseaux sociaux.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 12 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Culture & Tech</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+
+                <a href="#article4" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Orientation : Faut-il choisir une licence pro ?</h3>
+                            <p>Analyse des avantages et inconvénients des licences professionnelles vs. générales.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 11 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Études</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#article5" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Créer son CV : L'IA est-elle notre meilleure alliée ?</h3>
+                            <p>On teste les outils d'IA pour rédiger des CV percutants et optimiser les candidatures.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 10 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Avenir & Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#article6" class="article-card-link">
+                    <div class="article-card">
+                        <div class="card-visual"></div>
+                        <div class="article-content">
+                            <h3>Le Top 5 des séries Netflix à ne pas manquer ce mois-ci</h3>
+                            <p>Nos recommandations pour tes soirées chill et les sorties qui font le buzz.</p>
+                            <div class="meta">
+                                <span><i class="fas fa-calendar-alt"></i> 9 Nov 2025</span>
+                                <span><i class="fas fa-tags"></i> Culture & Chill</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
