@@ -190,7 +190,7 @@
             box-shadow: 0 7px 20px rgba(255, 107, 0, 0.4);
         }
         
-        /* --- Hero Section (Inchagée) --- */
+        /* --- Hero Section --- */
         .hero {
             background: linear-gradient(135deg, var(--white) 0%, var(--light-grey) 100%);
             padding: 100px 0;
@@ -207,6 +207,25 @@
 
         .hero h1 span {
             color: var(--dark-grey); 
+        }
+
+        /* NOUVEAU STYLE AJOUTÉ POUR LE BOUTON PRINCIPAL DU HERO */
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.6);
         }
 
         /* --- Sections d'Articles (CSS pour l'uniformité) --- */
@@ -262,6 +281,12 @@
         .articles-grid a:nth-child(4) .article-card { animation-delay: 0.4s; }
         .articles-grid a:nth-child(5) .article-card { animation-delay: 0.5s; }
         .articles-grid a:nth-child(6) .article-card { animation-delay: 0.6s; }
+        
+        /* Effet de survol des cartes */
+        .article-card-link:hover .article-card {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
 
 
         .card-visual {
@@ -283,14 +308,49 @@
             margin-top: auto; 
         }
 
-        /* --- Footer (Inchagé) --- */
+        /* --- Footer --- */
         .main-footer {
             background: var(--dark-grey);
             color: var(--light-grey);
             padding: 40px 0;
             text-align: center;
         }
-        /* ... Le reste du CSS, y compris les animations et media queries, reste inchangé. ... */
+
+        .footer-links-legal a {
+            color: var(--light-grey);
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+
+        .footer-links-legal a:hover {
+            color: var(--primary-orange);
+        }
+
+        .main-footer p {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        
+        /* --- Media Queries pour la responsivité (non demandée mais bonne pratique) --- */
+        @media (max-width: 900px) {
+            .nav-left {
+                gap: 20px;
+            }
+            .nav-links {
+                display: none; /* Cache la navigation principale sur petit écran */
+            }
+            .navbar {
+                justify-content: space-around;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -299,18 +359,18 @@
         <div class="container">
             <nav class="navbar">
                 <div class="nav-left">
-                    <a href="#" class="logo">Point<span> Zéro</span></a>
+                    <a href="index.html" class="logo">Point<span> Zéro</span></a>
                     
                     <ul class="nav-links">
-                        <li><a href="#articles">Études</a></li>
-                        <li><a href="#analyses">Avenir</a></li>
-                        <li><a href="#tendances">Culture & Chill</a></li>
+                        <li><a href="etudes.html">Études</a></li>
+                        <li><a href="avenir.html">Avenir</a></li>
+                        <li><a href="culture.html">Culture & Chill</a></li>
                     </ul>
                 </div>
                 
                 <div class="auth-buttons">
-                    <a href="#" class="btn-auth btn-connect">Connexion</a>
-                    <a href="#" class="btn-auth btn-signup">Créer un Compte</a>
+                    <a href="connexion.html" class="btn-auth btn-connect">Connexion</a>
+                    <a href="inscription.html" class="btn-auth btn-signup">Créer un Compte</a>
                 </div>
             </nav>
         </div>
@@ -319,7 +379,7 @@
     <section id="accueil" class="hero">
         <div class="container hero-content">
             <h1>Le média qui décrypte les codes de <span>ta génération</span>.</h1>
-            <p>Ici, on ne parle que de ce qui compte : **orientation, argent, bien-être, et les tendances qui font ta vie**. Fini les infos barbantes.</p>
+            <p>Ici, on ne parle que de ce qui compte : orientation, argent, bien-être, et les tendances qui font ta vie. Fini les infos barbantes.</p>
             <a href="#articles" class="btn-primary">Découvre les sujets du moment !</a>
         </div>
     </section>
@@ -329,7 +389,7 @@
             <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 60px; color: var(--dark-grey); font-family: 'Poppins', sans-serif;">Dernières Actus. 🔥</h2>
             <div class="articles-grid">
                 
-                <a href="#article1" class="article-card-link">
+                <a href="article-financement.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -343,7 +403,7 @@
                     </div>
                 </a>
 
-                <a href="#article2" class="article-card-link">
+                <a href="article-sante-mentale.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -357,7 +417,7 @@
                     </div>
                 </a>
 
-                <a href="#article3" class="article-card-link">
+                <a href="article-influenceurs.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -371,7 +431,7 @@
                     </div>
                 </a>
 
-                <a href="#article4" class="article-card-link">
+                <a href="article-licence-pro.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -385,7 +445,7 @@
                     </div>
                 </a>
                 
-                <a href="#article5" class="article-card-link">
+                <a href="article-ia-cv.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -399,7 +459,7 @@
                     </div>
                 </a>
 
-                <a href="#article6" class="article-card-link">
+                <a href="article-netflix.html" class="article-card-link">
                     <div class="article-card">
                         <div class="card-visual"></div>
                         <div class="article-content">
@@ -419,10 +479,10 @@
     <footer class="main-footer">
         <div class="container">
             <div class="footer-links-legal">
-                <a href="#">Mentions Légales</a>
-                <a href="#">Conditions Générales d'Utilisation (CGU)</a>
-                <a href="#">Politique de Confidentialité</a>
-                <a href="#">Conditions Générales de Vente (CGV)</a>
+                <a href="mentions-legales.html">Mentions Légales</a>
+                <a href="cgu.html">Conditions Générales d'Utilisation (CGU)</a>
+                <a href="confidentialite.html">Politique de Confidentialité</a>
+                <a href="cgv.html">Conditions Générales de Vente (CGV)</a>
             </div>
             <p>&copy; 2025 Point Zéro. Le média 100% jeunesse. Tous droits réservés.</p>
         </div>
@@ -442,6 +502,7 @@
 
 </body>
 </html>
+
 
 
 
